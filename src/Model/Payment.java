@@ -1,3 +1,5 @@
+package Model;
+
 
 public class Payment {
     private String transaksiId;

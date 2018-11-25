@@ -1,20 +1,26 @@
+package Model;
 
-public class Service extends Detail{
 
-    private String ServiceId;
+public class Product extends Detail{
+    private String productId;
     private Payment payment;
 
-    public Service(String ServiceId, String title, int Price, String kategori) {
-        super(title, Price, kategori);
-        this.ServiceId = ServiceId;
+    public Product(String productId, String title, int price, String kategori) {
+        super(title,price,kategori);
+        this.productId = productId;
     }
-
+    
     public void createPayment(String transaksiId, int nominal, String rekening, String Bank){
         this.payment = new Payment(transaksiId,nominal,rekening,Bank);
     }
     
-    public String getServiceId() {
-        return ServiceId;
+    @Override
+    public String getDeskripsi(String s) {
+        return s;
+    }
+
+    public String getProductId() {
+        return productId;
     }
     
     public String getTitle(){
@@ -33,9 +39,6 @@ public class Service extends Detail{
         return payment;
     }
     
-    @Override
-    public String getDeskripsi(String s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
 }
