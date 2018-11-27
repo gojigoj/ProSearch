@@ -7,7 +7,7 @@ public class Join {
     private User[] listUser;
     private Community[] listCommunity;
     private String tanggalJoin;
-
+    
     public Join(String tanggalJoin) {
         this.tanggalJoin = tanggalJoin;
     }
