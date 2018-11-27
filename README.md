@@ -1,4 +1,18 @@
-# ProSearch
-Tubes PBO
+# Tubes PBO
+## ProSearch
 
-Implementasi Class
+
+**Model (Application)**
+```
+Database - Implementasi Class
+```
+
+**View**
+```
+GUI
+```
+
+**Controller**
+```
+Model - View
+```
