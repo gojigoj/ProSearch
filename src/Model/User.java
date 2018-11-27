@@ -135,10 +135,4 @@ public class User {
         this.email = email;
     }
 
-    public void setLastEduc(ArrayList<String> lastEduc) {
-        this.lastEduc = lastEduc;
-    }
-    
-    
-    
 }
