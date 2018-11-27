@@ -1,44 +1,49 @@
+
 package Model;
 
 
-public class Product extends Detail{
-    private String productId;
-    private Payment payment;
+public class Product {
+    private String title;
+    private int price;
+    private String kategori;
+    private String deskripsi;
 
-    public Product(String productId, String title, int price, String kategori) {
-        super(title,price,kategori);
-        this.productId = productId;
+    public Product(String title, int price, String kategori, String deskripsi) {
+        this.title = title;
+        this.price = price;
+        this.kategori = kategori;
+        this.deskripsi = deskripsi;
     }
     
-    public void createPayment(String transaksiId, int nominal, String rekening, String Bank){
-        this.payment = new Payment(transaksiId,nominal,rekening,Bank);
-    }
-    
-    @Override
-    public String getDeskripsi(String s) {
-        return s;
+    public String getTitle() {
+        return title;
     }
 
-    public String getProductId() {
-        return productId;
-    }
-    
-    public String getTitle(){
-        return super.getTitle();
-    }
-    
     public int getPrice() {
-        return super.getPrice();
+        return price;
     }
 
     public String getKategori() {
-        return super.getKategori();
+        return kategori;
     }
 
-    public Payment getPayment() {
-        return payment;
+    public String getDeskripsi() {
+        return deskripsi;
     }
-    
-    
-    
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
 }

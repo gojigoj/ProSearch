@@ -1,43 +1,32 @@
+
 package Model;
 
 
-public class Service extends Detail{
+public class Service extends Product{
+    private String serviceId;
+    private int deadline;
 
-    private String ServiceId;
-    private Payment payment;
-
-    public Service(String ServiceId, String title, int Price, String kategori) {
-        super(title, Price, kategori);
-        this.ServiceId = ServiceId;
+    public Service(String serviceId, int deadline, String title, int price, String kategori, String deskripsi) {
+        super(title, price, kategori, deskripsi);
+        this.serviceId = serviceId;
+        this.deadline = deadline;
     }
 
-    public void createPayment(String transaksiId, int nominal, String rekening, String Bank){
-        this.payment = new Payment(transaksiId,nominal,rekening,Bank);
-    }
-    
     public String getServiceId() {
-        return ServiceId;
-    }
-    
-    public String getTitle(){
-        return super.getTitle();
-    }
-    
-    public int getPrice() {
-        return super.getPrice();
+        return serviceId;
     }
 
-    public String getKategori() {
-        return super.getKategori();
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
     }
 
-    public Payment getPayment() {
-        return payment;
+    public int getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(int deadline) {
+        this.deadline = deadline;
     }
     
-    @Override
-    public String getDeskripsi(String s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

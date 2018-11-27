@@ -1,28 +1,41 @@
+
 package Model;
 
 
-import java.util.*;
-
-
 public class Community {
-    private String Kategori;
-    private String Deskripsi;
-    private Date datePublish;
+    private String kategori;
+    private String deskripsi;
+    private String tanggalBuat;
 
-    public Community(String Kategori, Date datePublish) {
-        this.Kategori = Kategori;
-        this.datePublish = datePublish;
+    public Community(String kategori, String deskripsi, String tanggalBuat) {
+        this.kategori = kategori;
+        this.deskripsi = deskripsi;
+        this.tanggalBuat = tanggalBuat;
+    }
+    
+    public String getKategori() {
+        return kategori;
+    }
+
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
     }
 
     public String getDeskripsi() {
-        return Deskripsi;
+        return deskripsi;
     }
 
-    public void setDeskripsi(String Deskripsi) {
-        this.Deskripsi = Deskripsi;
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
     }
 
-    public void setKategori(String Kategori) {
-        this.Kategori = Kategori;
+    public String getTanggalBuat() {
+        return tanggalBuat;
     }
+
+    public void setTanggalBuat(String tanggalBuat) {
+        this.tanggalBuat = tanggalBuat;
+    }
+    
+    
 }

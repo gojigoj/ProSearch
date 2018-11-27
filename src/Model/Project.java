@@ -1,61 +1,54 @@
+
 package Model;
 
+import java.sql.Date;
 
-import java.util.*;
-
-
-public class Project extends Detail{
-    private String ProjectId;
-    private int BidCount;
+public class Project extends Product{
+    private char projectId;
     private String Status;
-    private Payment payment;
-    private Date tanggal;
-    private int Deadline;
+    private String tanggal;
+    private int deadline;
 
-    public Project(String ProjectId, int BidCount, String Status, Payment payment, Date tanggal, int Deadline, String title, int Price, String kategori) {
-        super(title, Price, kategori);
-        this.ProjectId = ProjectId;
-        this.BidCount = BidCount;
+    public Project(char projectId, String Status, String tanggal, int deadline, String title, int price, String kategori, String deskripsi) {
+        super(title, price, kategori, deskripsi);
+        this.projectId = projectId;
         this.Status = Status;
-        this.payment = payment;
         this.tanggal = tanggal;
-        this.Deadline = Deadline;
-    }
-    
-    public void createPayment(String transaksiId, int nominal, String rekening, String Bank){
-        this.payment = new Payment(transaksiId,nominal,rekening,Bank);
+        this.deadline = deadline;
     }
 
-    public String getProjectId() {
-        return ProjectId;
+    public char getProjectId() {
+        return projectId;
     }
 
-    public int getBidCount() {
-        return BidCount;
+    public void setProjectId(char projectId) {
+        this.projectId = projectId;
     }
 
     public String getStatus() {
         return Status;
     }
 
-    public Payment getPayment() {
-        return payment;
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
-    public Date getTanggal() {
+    public String getTanggal() {
         return tanggal;
     }
 
-    public int getDeadline() {
-        return Deadline;
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
     }
-    
-    @Override
-    public String getDeskripsi(String s) {
-        return s;
-    }
-    
-    
 
+    public int getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(int deadline) {
+        this.deadline = deadline;
+    }
+    
+    
     
 }
