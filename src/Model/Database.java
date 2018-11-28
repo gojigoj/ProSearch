@@ -31,4 +31,17 @@ public class Database {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public boolean manipulate(String query){
+        boolean cek = false;
+        try {
+            int rows = stmt.executeUpdate(query);
+            if (rows > 0) cek = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cek;
+    }
+    
+    
 }
