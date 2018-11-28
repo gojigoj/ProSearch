@@ -11,14 +11,14 @@ public class User {
     private String address;
     private String noHp;
     private String email;
-    private ArrayList<String> lastEduc;
+    private String lastEduc;
     private ArrayList<String> exp;
     private int numJual = 0;
     private int numBeli = 0;
     private Product[] listJual;
     private Product[] listBeli;
 
-    public User(String name, String username, String password, String birthday, String address, String noHp, String email) {
+    public User(String name, String username, String password, String birthday, String address, String noHp, String email, String lastEduc) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -26,7 +26,7 @@ public class User {
         this.address = address;
         this.noHp = noHp;
         this.email = email;
-        lastEduc = new ArrayList();
+        this.lastEduc = lastEduc;
         exp = new ArrayList();
     }
 
@@ -43,11 +43,6 @@ public class User {
     public void AddBeli(Product beli){
         listBeli[numBeli] = beli;
         numBeli++;
-    }
-
-    public void AddLastEduc(String s){
-        if (lastEduc.size() < 4)
-        lastEduc.add(s);
     }
     
     public void AddExp(String s){
@@ -83,10 +78,6 @@ public class User {
         return email;
     }
 
-    public ArrayList<String> getLastEduc() {
-        return lastEduc;
-    }
-
     public ArrayList<String> getExp() {
         return exp;
     }
@@ -105,6 +96,14 @@ public class User {
 
     public Product getListBeli(int i) {
         return listBeli[i];
+    }
+
+    public String getLastEduc() {
+        return lastEduc;
+    }
+
+    public void setLastEduc(String lastEduc) {
+        this.lastEduc = lastEduc;
     }
 
     public void setName(String name) {
