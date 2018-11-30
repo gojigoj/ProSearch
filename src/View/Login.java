@@ -56,6 +56,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("or");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, -1, 20));
 
+        tfUsernameL.setBackground(new java.awt.Color(38, 38, 38));
         tfUsernameL.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         tfUsernameL.setForeground(new java.awt.Color(242, 242, 242));
         tfUsernameL.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
@@ -73,6 +74,7 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("USERNAME");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, 20));
 
+        pfPasswordL.setBackground(new java.awt.Color(38, 38, 38));
         pfPasswordL.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         pfPasswordL.setForeground(new java.awt.Color(242, 242, 242));
         pfPasswordL.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));

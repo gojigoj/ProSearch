@@ -59,6 +59,7 @@ public class register extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(38, 38, 38));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextField1.setBackground(new java.awt.Color(38, 38, 38));
         jTextField1.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(242, 242, 242));
         jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
@@ -76,6 +77,7 @@ public class register extends javax.swing.JFrame {
         jLabel4.setText("DATE OF BIRTH");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, -1, 20));
 
+        jPasswordField1.setBackground(new java.awt.Color(38, 38, 38));
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(242, 242, 242));
         jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
@@ -115,6 +117,7 @@ public class register extends javax.swing.JFrame {
         jLabel8.setText("PASSWORD");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, -1, 20));
 
+        jTextField2.setBackground(new java.awt.Color(38, 38, 38));
         jTextField2.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(242, 242, 242));
         jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
@@ -147,6 +150,7 @@ public class register extends javax.swing.JFrame {
         jLabel11.setText("USERNAME");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, 20));
 
+        jTextField3.setBackground(new java.awt.Color(38, 38, 38));
         jTextField3.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(242, 242, 242));
         jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
@@ -164,6 +168,7 @@ public class register extends javax.swing.JFrame {
         jLabel12.setText("PHONE NUMBER");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, -1, 20));
 
+        jTextField4.setBackground(new java.awt.Color(38, 38, 38));
         jTextField4.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(242, 242, 242));
         jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
@@ -181,6 +186,7 @@ public class register extends javax.swing.JFrame {
         jLabel13.setText("E-MAIL");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, -1, 20));
 
+        jTextField5.setBackground(new java.awt.Color(38, 38, 38));
         jTextField5.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(242, 242, 242));
         jTextField5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
@@ -209,29 +215,29 @@ public class register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

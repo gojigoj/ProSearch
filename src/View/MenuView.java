@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package View;
+
+import java.awt.Color;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Goji
@@ -32,30 +36,30 @@ public class MenuView extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btnProject = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        IndicatorProject = new javax.swing.JPanel();
         btnService = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        IndicatorService = new javax.swing.JPanel();
         btnProduct = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        IndicatorProduct = new javax.swing.JPanel();
         btnCommunity = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
+        IndicatorCommunity = new javax.swing.JPanel();
         PanelMain = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        ProjectPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
+        ServicePanel = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        ProductPanel = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        CommunityPanel = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
@@ -77,6 +81,17 @@ public class MenuView extends javax.swing.JFrame {
         jLabel6.setText("ProSearch");
 
         btnProject.setBackground(new java.awt.Color(38, 38, 38));
+        btnProject.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnProjectMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnProjectMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnProjectMousePressed(evt);
+            }
+        });
         btnProject.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(89, 89, 89));
@@ -85,22 +100,33 @@ public class MenuView extends javax.swing.JFrame {
         jLabel1.setText("PROJECT");
         btnProject.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 192, 0));
+        IndicatorProject.setBackground(new java.awt.Color(255, 192, 0));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout IndicatorProjectLayout = new javax.swing.GroupLayout(IndicatorProject);
+        IndicatorProject.setLayout(IndicatorProjectLayout);
+        IndicatorProjectLayout.setHorizontalGroup(
+            IndicatorProjectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        IndicatorProjectLayout.setVerticalGroup(
+            IndicatorProjectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        btnProject.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, -1));
+        btnProject.add(IndicatorProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, -1));
 
         btnService.setBackground(new java.awt.Color(38, 38, 38));
+        btnService.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnServiceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnServiceMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnServiceMousePressed(evt);
+            }
+        });
         btnService.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(89, 89, 89));
@@ -109,22 +135,33 @@ public class MenuView extends javax.swing.JFrame {
         jLabel2.setText("SERVICE");
         btnService.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
-        jPanel4.setBackground(new java.awt.Color(255, 192, 0));
+        IndicatorService.setBackground(new java.awt.Color(255, 192, 0));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout IndicatorServiceLayout = new javax.swing.GroupLayout(IndicatorService);
+        IndicatorService.setLayout(IndicatorServiceLayout);
+        IndicatorServiceLayout.setHorizontalGroup(
+            IndicatorServiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        IndicatorServiceLayout.setVerticalGroup(
+            IndicatorServiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        btnService.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, -1));
+        btnService.add(IndicatorService, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, -1));
 
         btnProduct.setBackground(new java.awt.Color(38, 38, 38));
+        btnProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnProductMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnProductMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnProductMousePressed(evt);
+            }
+        });
         btnProduct.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(89, 89, 89));
@@ -133,22 +170,33 @@ public class MenuView extends javax.swing.JFrame {
         jLabel3.setText("PRODUCT");
         btnProduct.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
-        jPanel6.setBackground(new java.awt.Color(255, 192, 0));
+        IndicatorProduct.setBackground(new java.awt.Color(255, 192, 0));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout IndicatorProductLayout = new javax.swing.GroupLayout(IndicatorProduct);
+        IndicatorProduct.setLayout(IndicatorProductLayout);
+        IndicatorProductLayout.setHorizontalGroup(
+            IndicatorProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        IndicatorProductLayout.setVerticalGroup(
+            IndicatorProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        btnProduct.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, -1));
+        btnProduct.add(IndicatorProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, -1));
 
         btnCommunity.setBackground(new java.awt.Color(38, 38, 38));
+        btnCommunity.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCommunityMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCommunityMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCommunityMousePressed(evt);
+            }
+        });
         btnCommunity.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(89, 89, 89));
@@ -157,20 +205,20 @@ public class MenuView extends javax.swing.JFrame {
         jLabel4.setText("COMMUNITY");
         btnCommunity.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
-        jPanel8.setBackground(new java.awt.Color(255, 192, 0));
+        IndicatorCommunity.setBackground(new java.awt.Color(255, 192, 0));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout IndicatorCommunityLayout = new javax.swing.GroupLayout(IndicatorCommunity);
+        IndicatorCommunity.setLayout(IndicatorCommunityLayout);
+        IndicatorCommunityLayout.setHorizontalGroup(
+            IndicatorCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        IndicatorCommunityLayout.setVerticalGroup(
+            IndicatorCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        btnCommunity.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, -1));
+        btnCommunity.add(IndicatorCommunity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, -1));
 
         javax.swing.GroupLayout PanelMenuLayout = new javax.swing.GroupLayout(PanelMenu);
         PanelMenu.setLayout(PanelMenuLayout);
@@ -209,7 +257,7 @@ public class MenuView extends javax.swing.JFrame {
 
         PanelMain.setLayout(new java.awt.CardLayout());
 
-        jPanel7.setBackground(new java.awt.Color(242, 242, 242));
+        ProjectPanel.setBackground(new java.awt.Color(242, 242, 242));
 
         jTabbedPane1.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
 
@@ -239,22 +287,22 @@ public class MenuView extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Create Project", jPanel10);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ProjectPanelLayout = new javax.swing.GroupLayout(ProjectPanel);
+        ProjectPanel.setLayout(ProjectPanelLayout);
+        ProjectPanelLayout.setHorizontalGroup(
+            ProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+        ProjectPanelLayout.setVerticalGroup(
+            ProjectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjectPanelLayout.createSequentialGroup()
                 .addGap(0, 139, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        PanelMain.add(jPanel7, "card5");
+        PanelMain.add(ProjectPanel, "card5");
 
-        jPanel5.setBackground(new java.awt.Color(242, 242, 242));
+        ServicePanel.setBackground(new java.awt.Color(242, 242, 242));
 
         jTabbedPane2.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
 
@@ -284,22 +332,22 @@ public class MenuView extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Create Service", jPanel12);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ServicePanelLayout = new javax.swing.GroupLayout(ServicePanel);
+        ServicePanel.setLayout(ServicePanelLayout);
+        ServicePanelLayout.setHorizontalGroup(
+            ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane2)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+        ServicePanelLayout.setVerticalGroup(
+            ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicePanelLayout.createSequentialGroup()
                 .addGap(0, 139, Short.MAX_VALUE)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        PanelMain.add(jPanel5, "card4");
+        PanelMain.add(ServicePanel, "card4");
 
-        jPanel3.setBackground(new java.awt.Color(242, 242, 242));
+        ProductPanel.setBackground(new java.awt.Color(242, 242, 242));
 
         jTabbedPane3.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
 
@@ -329,22 +377,22 @@ public class MenuView extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Create Product", jPanel14);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ProductPanelLayout = new javax.swing.GroupLayout(ProductPanel);
+        ProductPanel.setLayout(ProductPanelLayout);
+        ProductPanelLayout.setHorizontalGroup(
+            ProductPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane3)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        ProductPanelLayout.setVerticalGroup(
+            ProductPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductPanelLayout.createSequentialGroup()
                 .addGap(0, 139, Short.MAX_VALUE)
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        PanelMain.add(jPanel3, "card3");
+        PanelMain.add(ProductPanel, "card3");
 
-        jPanel1.setBackground(new java.awt.Color(242, 242, 242));
+        CommunityPanel.setBackground(new java.awt.Color(242, 242, 242));
 
         jTabbedPane4.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
 
@@ -374,20 +422,20 @@ public class MenuView extends javax.swing.JFrame {
 
         jTabbedPane4.addTab("Create Community", jPanel16);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout CommunityPanelLayout = new javax.swing.GroupLayout(CommunityPanel);
+        CommunityPanel.setLayout(CommunityPanelLayout);
+        CommunityPanelLayout.setHorizontalGroup(
+            CommunityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane4)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        CommunityPanelLayout.setVerticalGroup(
+            CommunityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CommunityPanelLayout.createSequentialGroup()
                 .addGap(0, 139, Short.MAX_VALUE)
                 .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        PanelMain.add(jPanel1, "card2");
+        PanelMain.add(CommunityPanel, "card2");
 
         javax.swing.GroupLayout PanelBodyLayout = new javax.swing.GroupLayout(PanelBody);
         PanelBody.setLayout(PanelBodyLayout);
@@ -418,6 +466,168 @@ public class MenuView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnProjectMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectMousePressed
+        // TODO add your handling code here:
+        // remove panel
+        PanelMain.removeAll();
+        PanelMain.repaint();
+        PanelMain.revalidate();
+
+        onClick(btnProject);
+        onleaveClick(btnService);
+        onleaveClick(btnProduct);
+        onleaveClick(btnCommunity);
+        
+        IndicatorProject.setVisible(true);
+        IndicatorService.setVisible(false);
+        IndicatorProduct.setVisible(false);
+        IndicatorCommunity.setVisible(false);
+        
+        // add panel
+        PanelMain.add(ProjectPanel);
+        PanelMain.repaint();
+        PanelMain.revalidate();
+    }//GEN-LAST:event_btnProjectMousePressed
+
+    private void btnServiceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiceMousePressed
+        // TODO add your handling code here:
+        // remove panel
+        PanelMain.removeAll();
+        PanelMain.repaint();
+        PanelMain.revalidate();
+
+        onClick(btnService);
+        onleaveClick(btnProject);
+        onleaveClick(btnProduct);
+        onleaveClick(btnCommunity);
+        
+        IndicatorService.setVisible(true);
+        IndicatorProject.setVisible(false);
+        IndicatorProduct.setVisible(false);
+        IndicatorCommunity.setVisible(false);
+        
+        // add panel
+        PanelMain.add(ServicePanel);
+        PanelMain.repaint();
+        PanelMain.revalidate();
+    }//GEN-LAST:event_btnServiceMousePressed
+
+    private void btnProductMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductMousePressed
+        // TODO add your handling code here:
+        // remove panel
+        PanelMain.removeAll();
+        PanelMain.repaint();
+        PanelMain.revalidate();
+
+        onClick(btnProduct);
+        onleaveClick(btnProject);
+        onleaveClick(btnService);
+        onleaveClick(btnCommunity);
+        
+        IndicatorProduct.setVisible(true);
+        IndicatorProject.setVisible(false);
+        IndicatorService.setVisible(false);
+        IndicatorCommunity.setVisible(false);
+        
+        // add panel
+        PanelMain.add(ProductPanel);
+        PanelMain.repaint();
+        PanelMain.revalidate();
+    }//GEN-LAST:event_btnProductMousePressed
+
+    private void btnCommunityMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCommunityMousePressed
+        // TODO add your handling code here:
+        // remove panel
+        PanelMain.removeAll();
+        PanelMain.repaint();
+        PanelMain.revalidate();
+
+        onClick(btnCommunity);
+        onleaveClick(btnProject);
+        onleaveClick(btnService);
+        onleaveClick(btnProduct);
+        
+        IndicatorCommunity.setVisible(true);
+        IndicatorProject.setVisible(false);
+        IndicatorService.setVisible(false);
+        IndicatorProduct.setVisible(false);
+        
+        // add panel
+        PanelMain.add(CommunityPanel);
+        PanelMain.repaint();
+        PanelMain.revalidate();
+    }//GEN-LAST:event_btnCommunityMousePressed
+
+    private void btnProjectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectMouseEntered
+        // TODO add your handling code here:
+        onHover(btnProject);
+        onLeaveHover(btnService);
+        onLeaveHover(btnProduct);
+        onLeaveHover(btnCommunity);
+    }//GEN-LAST:event_btnProjectMouseEntered
+
+    private void btnServiceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiceMouseEntered
+        // TODO add your handling code here:
+        onHover(btnService);
+        onLeaveHover(btnProject);
+        onLeaveHover(btnProduct);
+        onLeaveHover(btnCommunity);
+    }//GEN-LAST:event_btnServiceMouseEntered
+
+    private void btnProductMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductMouseEntered
+        // TODO add your handling code here:
+        onHover(btnProduct);
+        onLeaveHover(btnProject);
+        onLeaveHover(btnService);
+        onLeaveHover(btnCommunity);
+    }//GEN-LAST:event_btnProductMouseEntered
+
+    private void btnCommunityMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCommunityMouseEntered
+        // TODO add your handling code here:
+        onHover(btnCommunity);
+        onLeaveHover(btnProject);
+        onLeaveHover(btnProduct);
+        onLeaveHover(btnService);
+    }//GEN-LAST:event_btnCommunityMouseEntered
+
+    private void btnProjectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectMouseExited
+        // TODO add your handling code here:
+        onLeaveHover(btnProject);
+    }//GEN-LAST:event_btnProjectMouseExited
+
+    private void btnServiceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiceMouseExited
+        // TODO add your handling code here:
+        onLeaveHover(btnService);
+    }//GEN-LAST:event_btnServiceMouseExited
+
+    private void btnProductMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductMouseExited
+        // TODO add your handling code here:
+        onLeaveHover(btnProduct);
+    }//GEN-LAST:event_btnProductMouseExited
+
+    private void btnCommunityMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCommunityMouseExited
+        // TODO add your handling code here:
+        onLeaveHover(btnCommunity);
+    }//GEN-LAST:event_btnCommunityMouseExited
+
+    public void onHover(JPanel panel){
+        panel.setBackground(new Color(204,204,204));
+    }
+    
+    public void onLeaveHover(JPanel panel){
+        panel.setBackground(new Color(38,38,38));
+    }
+    
+    public void onClick(JPanel panel){
+        panel.setBackground(new Color(204,204,204));
+    }
+    
+    public void onleaveClick(JPanel panel){
+        panel.setBackground(new Color(38,38,38));
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -457,9 +667,17 @@ public class MenuView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel CommunityPanel;
+    private javax.swing.JPanel IndicatorCommunity;
+    private javax.swing.JPanel IndicatorProduct;
+    private javax.swing.JPanel IndicatorProject;
+    private javax.swing.JPanel IndicatorService;
     private javax.swing.JPanel PanelBody;
     private javax.swing.JPanel PanelMain;
     private javax.swing.JPanel PanelMenu;
+    private javax.swing.JPanel ProductPanel;
+    private javax.swing.JPanel ProjectPanel;
+    private javax.swing.JPanel ServicePanel;
     private javax.swing.JPanel btnCommunity;
     private javax.swing.JPanel btnProduct;
     private javax.swing.JPanel btnProject;
@@ -470,7 +688,6 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -478,13 +695,6 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
