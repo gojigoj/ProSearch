@@ -32,7 +32,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         tfUsernameL = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        username = new javax.swing.JLabel();
         pfPasswordL = new javax.swing.JPasswordField();
         btnRegister = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -69,10 +69,10 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel2.add(tfUsernameL, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 400, 40));
 
-        jLabel4.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel4.setText("USERNAME");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, 20));
+        username.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
+        username.setForeground(new java.awt.Color(153, 153, 153));
+        username.setText("USERNAME");
+        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, 20));
 
         pfPasswordL.setBackground(new java.awt.Color(38, 38, 38));
         pfPasswordL.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -192,7 +192,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -201,5 +200,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField pfPasswordL;
     private javax.swing.JTextField tfUsernameL;
+    private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 }

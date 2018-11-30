@@ -12,13 +12,13 @@ public class User {
     private String noHp;
     private String email;
     private String lastEduc;
-    private ArrayList<String> exp;
+    private String skill;
     private int numJual = 0;
     private int numBeli = 0;
     private Product[] listJual;
     private Product[] listBeli;
 
-    public User(String name, String username, String password, String birthday, String address, String noHp, String email, String lastEduc) {
+    public User(String name, String username, String password, String birthday, String address, String noHp, String email, String lastEduc, String skill) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -27,8 +27,9 @@ public class User {
         this.noHp = noHp;
         this.email = email;
         this.lastEduc = lastEduc;
-        exp = new ArrayList();
+        this.skill = skill;
     }
+
 
     public User(String username, String password) {
         this.username = username;
@@ -43,11 +44,6 @@ public class User {
     public void AddBeli(Product beli){
         listBeli[numBeli] = beli;
         numBeli++;
-    }
-    
-    public void AddExp(String s){
-        if (exp.size() < 4)
-        exp.add(s);
     }
     
     public String getName() {
@@ -78,10 +74,6 @@ public class User {
         return email;
     }
 
-    public ArrayList<String> getExp() {
-        return exp;
-    }
-
     public int getNumJual() {
         return numJual;
     }
@@ -102,6 +94,14 @@ public class User {
         return lastEduc;
     }
 
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+    
     public void setLastEduc(String lastEduc) {
         this.lastEduc = lastEduc;
     }
