@@ -10,12 +10,12 @@ package View;
  *
  * @author Goji
  */
-public class register extends javax.swing.JFrame {
+public class Payment extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    public register() {
+    public Payment() {
         initComponents();
     }
 
@@ -31,21 +31,13 @@ public class register extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel11 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
@@ -63,6 +55,7 @@ public class register extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(38, 38, 38));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(38, 38, 38));
         jTextField1.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(242, 242, 242));
@@ -76,22 +69,9 @@ public class register extends javax.swing.JFrame {
         });
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 400, 40));
 
-        jLabel4.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel4.setText("DATE OF BIRTH");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, -1, 20));
-
-        jPasswordField1.setBackground(new java.awt.Color(38, 38, 38));
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(242, 242, 242));
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
-        jPasswordField1.setCaretColor(new java.awt.Color(242, 242, 242));
-        jPasswordField1.setOpaque(false);
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 400, 40));
-
         jButton1.setBackground(new java.awt.Color(255, 192, 0));
         jButton1.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
-        jButton1.setText("REGISTER");
+        jButton1.setText("FINISH");
         jButton1.setToolTipText("");
         jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 192, 0)));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,11 +79,11 @@ public class register extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 670, 130, 40));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 520, 130, 40));
 
         jLabel6.setFont(new java.awt.Font("Montserrat SemiBold", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 192, 0));
-        jLabel6.setText("REGISTER");
+        jLabel6.setText("PAYMENT");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Palatino Linotype", 1, 100)); // NOI18N
@@ -116,44 +96,18 @@ public class register extends javax.swing.JFrame {
         jLabel5.setText("ProSearch");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel8.setText("PASSWORD");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, -1, 20));
-
-        jTextField2.setBackground(new java.awt.Color(38, 38, 38));
-        jTextField2.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(242, 242, 242));
-        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
-        jTextField2.setCaretColor(new java.awt.Color(242, 242, 242));
-        jTextField2.setOpaque(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 400, 40));
-
-        jLabel9.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel9.setText("ADDRESS");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 350, -1, 20));
-
         jLabel10.setBackground(new java.awt.Color(153, 153, 153));
         jLabel10.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel10.setText("NAME");
+        jLabel10.setText("TRANSACTION ID");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, 20));
-
-        jDateChooser1.setDateFormatString("dd/MM/yyyy");
-        jDateChooser1.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 220, 30));
 
         jLabel11.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel11.setText("USERNAME");
+        jLabel11.setText("TITLE");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, 20));
 
+        jTextField3.setEditable(false);
         jTextField3.setBackground(new java.awt.Color(38, 38, 38));
         jTextField3.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(242, 242, 242));
@@ -167,34 +121,17 @@ public class register extends javax.swing.JFrame {
         });
         jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 400, 40));
 
-        jLabel12.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel12.setText("PHONE NUMBER");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, -1, 20));
-
-        jTextField4.setBackground(new java.awt.Color(38, 38, 38));
-        jTextField4.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(242, 242, 242));
-        jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
-        jTextField4.setCaretColor(new java.awt.Color(242, 242, 242));
-        jTextField4.setOpaque(false);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, 400, 40));
-
         jLabel13.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel13.setText("Last Education");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, -1, 20));
+        jLabel13.setText("BANK");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, -1, 20));
 
         jLabel14.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel14.setText("E-MAIL");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, -1, 20));
+        jLabel14.setText("PRICE");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, -1, 20));
 
+        jTextField6.setEditable(false);
         jTextField6.setBackground(new java.awt.Color(38, 38, 38));
         jTextField6.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(242, 242, 242));
@@ -206,21 +143,23 @@ public class register extends javax.swing.JFrame {
                 jTextField6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 400, 40));
+        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 400, 40));
 
         jComboBox1.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SD", "SMP", "SMA", "SMK", "D3", "S1", "S2", "S3" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BNI", "Mandiri", "BCA", "BRI" }));
         jComboBox1.setOpaque(false);
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 550, 130, 30));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, 130, 30));
 
         jLabel15.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel15.setText("SKILL");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, -1, 20));
+        jLabel15.setText("NO. REK");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, -1, 20));
 
+        jTextField7.setEditable(false);
         jTextField7.setBackground(new java.awt.Color(38, 38, 38));
         jTextField7.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         jTextField7.setForeground(new java.awt.Color(242, 242, 242));
+        jTextField7.setText("0700-000-899-992");
         jTextField7.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
         jTextField7.setCaretColor(new java.awt.Color(242, 242, 242));
         jTextField7.setOpaque(false);
@@ -229,9 +168,9 @@ public class register extends javax.swing.JFrame {
                 jTextField7ActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 620, 400, 40));
+        jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 400, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 750));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 590));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,23 +180,15 @@ public class register extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -292,21 +223,23 @@ public class register extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Payment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new register().setVisible(true);
+                new Payment().setVisible(true);
             }
         });
     }
@@ -314,26 +247,18 @@ public class register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables

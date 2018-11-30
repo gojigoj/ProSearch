@@ -92,7 +92,7 @@ public class Login extends javax.swing.JFrame {
                 btnRegisterActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 440, 130, 40));
+        jPanel2.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, 130, 40));
 
         jLabel6.setFont(new java.awt.Font("Montserrat SemiBold", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 192, 0));
@@ -119,7 +119,7 @@ public class Login extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        jPanel2.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, 130, 40));
+        jPanel2.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 440, 130, 40));
 
         jLabel8.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 153, 153));
