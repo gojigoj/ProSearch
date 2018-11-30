@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -152,8 +153,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_tfUsernameLActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        setVisible(false);
-        new register().setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
@@ -191,6 +191,15 @@ public class Login extends javax.swing.JFrame {
     public void setTfUsernameL(String x) {
         tfUsernameL.setText(x);
     }
+
+    public JButton getBtnLogin() {
+        return btnLogin;
+    }
+
+    public JButton getBtnRegister() {
+        return btnRegister;
+    }
+    
     
     public void reset(){
         setTfUsernameL("");

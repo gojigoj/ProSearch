@@ -15,7 +15,7 @@ public class Database {
     
     public void connect(){
         try {
-            String url = "jdbc:mysql://localhost/prosearch";
+            String url = "jdbc:mysql://localhost:3306/prosearch";
             String user = "root";
             String pass = "";
             conn = DriverManager.getConnection(url, user, pass);
@@ -51,7 +51,7 @@ public class Database {
             String query = "SELECT * FROM user";
             rs = stmt.executeQuery(query);
             while (rs.next()){
-                listUser.add(new User(rs.getString("name"), rs.getString("username"), rs.getString("password"), rs.getString("birthdate"),rs.getString("address"),rs.getString("nohp"),rs.getString("email"),rs.getString("lasteduc"),rs.getString("skill")));
+                listUser.add(new User(rs.getString("name"), rs.getString("username"), rs.getString("password"), rs.getString("birthday"),rs.getString("address"),rs.getString("nohp"),rs.getString("email"),rs.getString("lasteduc"),rs.getString("skill")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
@@ -63,6 +63,18 @@ public class Database {
         boolean cek = false;
         for (User usr : listUser){
             if (usr.getUsername().equals(username)){
+                cek = true;
+                break;
+            }
+        }
+        
+        return cek;
+    }
+    
+    public boolean cekPassword(String password){
+        boolean cek = false;
+        for (User usr : listUser){
+            if (usr.getPassword().equals(password)){
                 cek = true;
                 break;
             }

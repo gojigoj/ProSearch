@@ -29,13 +29,29 @@ public class ControllerLogin extends MouseAdapter implements ActionListener{
     }
     
     
-    
-    
-    
-    
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Object source = ae.getSource();
+        if (source.equals(view.getBtnLogin())){
+            btnLoginActionPerformed();
+        } else if (source.equals(view.getBtnRegister())){
+            btnRegisterActionPerformed();
+        }
+    }
+    
+    public void btnLoginActionPerformed(){
+        if(db.cekUsername(view.getTfUsernameL()) && db.cekPassword(view.getPfPasswordL())){
+            view.showMessage("Anda Berhasil Login", "Success", 1);
+            new MenuView().setVisible(true);
+            view.setVisible(false);
+        } else {
+            view.showMessage("Username yang anda masukkan salah/tidak ada", "Failed", 1);
+        }
+    }
+    
+    public void btnRegisterActionPerformed(){
+        view.setVisible(false);
+        new register().setVisible(true);
     }
     
 }
