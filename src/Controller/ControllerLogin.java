@@ -45,13 +45,13 @@ public class ControllerLogin extends MouseAdapter implements ActionListener{
             new MenuView().setVisible(true);
             view.setVisible(false);
         } else {
-            view.showMessage("Username yang anda masukkan salah/tidak ada", "Failed", 1);
+            view.showMessage("Username yang anda masukkan salah/tidak ada", "Failed", 0);
         }
     }
     
     public void btnRegisterActionPerformed(){
         view.setVisible(false);
-        new register().setVisible(true);
+        new ControllerRegister();
     }
     
 }

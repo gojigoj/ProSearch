@@ -1,8 +1,15 @@
 
 package Model;
 
-import java.sql.*;
-import java.util.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,6 +48,7 @@ public class Database {
             if (rows > 0) cek = true;
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("data tidak masuk");
         }
         return cek;
     }
@@ -81,6 +89,25 @@ public class Database {
         }
         
         return cek;
+    }
+    
+    
+    
+    public void addUser(User x) {
+        connect();
+        String query = "INSERT INTO user VALUES (";
+        query += "'" + x.getName() + "',";
+        query += "'" + x.getUsername() + "',";
+        query += "'" + x.getPassword() + "',";
+        query += "'" + x.getEmail() + "',";
+        query += "'" + x.getBirthday() + "',";
+        query += "'" + x.getAddress() + "',";
+        query += "'" + x.getLastEduc() + "',";
+        query += "'" + x.getNoHp() + "',";
+        query += "'" + x.getSkill() + "'";
+        query += ")";
+        if (manipulate(query)) listUser.add(x);
+        disconnect();
     }
     
     

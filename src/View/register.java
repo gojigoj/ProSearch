@@ -5,6 +5,16 @@
  */
 package View;
 
+import com.toedter.calendar.JDateChooser;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 
 /**
  *
@@ -30,28 +40,28 @@ public class register extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        tfNameRegister = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        pfPassRegister = new javax.swing.JPasswordField();
+        btnRegister = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        tfAddressRegister = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        dcBirthDay = new com.toedter.calendar.JDateChooser();
         jLabel11 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tfUsernameRegister = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        tfPhoneNumber = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        tfEmailRegister = new javax.swing.JTextField();
+        cbLastEduc = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        tfSkillRegister = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -63,43 +73,43 @@ public class register extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(38, 38, 38));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new java.awt.Color(38, 38, 38));
-        jTextField1.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(242, 242, 242));
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
-        jTextField1.setCaretColor(new java.awt.Color(242, 242, 242));
-        jTextField1.setOpaque(false);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tfNameRegister.setBackground(new java.awt.Color(38, 38, 38));
+        tfNameRegister.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        tfNameRegister.setForeground(new java.awt.Color(242, 242, 242));
+        tfNameRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
+        tfNameRegister.setCaretColor(new java.awt.Color(242, 242, 242));
+        tfNameRegister.setOpaque(false);
+        tfNameRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tfNameRegisterActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 400, 40));
+        jPanel2.add(tfNameRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 400, 40));
 
         jLabel4.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("DATE OF BIRTH");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, -1, 20));
 
-        jPasswordField1.setBackground(new java.awt.Color(38, 38, 38));
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(242, 242, 242));
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
-        jPasswordField1.setCaretColor(new java.awt.Color(242, 242, 242));
-        jPasswordField1.setOpaque(false);
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 400, 40));
+        pfPassRegister.setBackground(new java.awt.Color(38, 38, 38));
+        pfPassRegister.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        pfPassRegister.setForeground(new java.awt.Color(242, 242, 242));
+        pfPassRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
+        pfPassRegister.setCaretColor(new java.awt.Color(242, 242, 242));
+        pfPassRegister.setOpaque(false);
+        jPanel2.add(pfPassRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 400, 40));
 
-        jButton1.setBackground(new java.awt.Color(255, 192, 0));
-        jButton1.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
-        jButton1.setText("REGISTER");
-        jButton1.setToolTipText("");
-        jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 192, 0)));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegister.setBackground(new java.awt.Color(255, 192, 0));
+        btnRegister.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        btnRegister.setText("REGISTER");
+        btnRegister.setToolTipText("");
+        btnRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 192, 0)));
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRegisterActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 670, 130, 40));
+        jPanel2.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 670, 130, 40));
 
         jLabel6.setFont(new java.awt.Font("Montserrat SemiBold", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 192, 0));
@@ -121,18 +131,18 @@ public class register extends javax.swing.JFrame {
         jLabel8.setText("PASSWORD");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, -1, 20));
 
-        jTextField2.setBackground(new java.awt.Color(38, 38, 38));
-        jTextField2.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(242, 242, 242));
-        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
-        jTextField2.setCaretColor(new java.awt.Color(242, 242, 242));
-        jTextField2.setOpaque(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfAddressRegister.setBackground(new java.awt.Color(38, 38, 38));
+        tfAddressRegister.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        tfAddressRegister.setForeground(new java.awt.Color(242, 242, 242));
+        tfAddressRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
+        tfAddressRegister.setCaretColor(new java.awt.Color(242, 242, 242));
+        tfAddressRegister.setOpaque(false);
+        tfAddressRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfAddressRegisterActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 400, 40));
+        jPanel2.add(tfAddressRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 400, 40));
 
         jLabel9.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(153, 153, 153));
@@ -145,45 +155,45 @@ public class register extends javax.swing.JFrame {
         jLabel10.setText("NAME");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, 20));
 
-        jDateChooser1.setDateFormatString("dd/MM/yyyy");
-        jDateChooser1.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 220, 30));
+        dcBirthDay.setDateFormatString("dd/MM/yyyy");
+        dcBirthDay.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        jPanel2.add(dcBirthDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 220, 30));
 
         jLabel11.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(153, 153, 153));
         jLabel11.setText("USERNAME");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, 20));
 
-        jTextField3.setBackground(new java.awt.Color(38, 38, 38));
-        jTextField3.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(242, 242, 242));
-        jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
-        jTextField3.setCaretColor(new java.awt.Color(242, 242, 242));
-        jTextField3.setOpaque(false);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        tfUsernameRegister.setBackground(new java.awt.Color(38, 38, 38));
+        tfUsernameRegister.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        tfUsernameRegister.setForeground(new java.awt.Color(242, 242, 242));
+        tfUsernameRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
+        tfUsernameRegister.setCaretColor(new java.awt.Color(242, 242, 242));
+        tfUsernameRegister.setOpaque(false);
+        tfUsernameRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                tfUsernameRegisterActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 400, 40));
+        jPanel2.add(tfUsernameRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 400, 40));
 
         jLabel12.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("PHONE NUMBER");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, -1, 20));
 
-        jTextField4.setBackground(new java.awt.Color(38, 38, 38));
-        jTextField4.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(242, 242, 242));
-        jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
-        jTextField4.setCaretColor(new java.awt.Color(242, 242, 242));
-        jTextField4.setOpaque(false);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        tfPhoneNumber.setBackground(new java.awt.Color(38, 38, 38));
+        tfPhoneNumber.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        tfPhoneNumber.setForeground(new java.awt.Color(242, 242, 242));
+        tfPhoneNumber.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
+        tfPhoneNumber.setCaretColor(new java.awt.Color(242, 242, 242));
+        tfPhoneNumber.setOpaque(false);
+        tfPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                tfPhoneNumberActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, 400, 40));
+        jPanel2.add(tfPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, 400, 40));
 
         jLabel13.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(153, 153, 153));
@@ -195,41 +205,41 @@ public class register extends javax.swing.JFrame {
         jLabel14.setText("E-MAIL");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, -1, 20));
 
-        jTextField6.setBackground(new java.awt.Color(38, 38, 38));
-        jTextField6.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(242, 242, 242));
-        jTextField6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
-        jTextField6.setCaretColor(new java.awt.Color(242, 242, 242));
-        jTextField6.setOpaque(false);
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        tfEmailRegister.setBackground(new java.awt.Color(38, 38, 38));
+        tfEmailRegister.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        tfEmailRegister.setForeground(new java.awt.Color(242, 242, 242));
+        tfEmailRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
+        tfEmailRegister.setCaretColor(new java.awt.Color(242, 242, 242));
+        tfEmailRegister.setOpaque(false);
+        tfEmailRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                tfEmailRegisterActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 400, 40));
+        jPanel2.add(tfEmailRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 400, 40));
 
-        jComboBox1.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SD", "SMP", "SMA", "SMK", "D3", "S1", "S2", "S3" }));
-        jComboBox1.setOpaque(false);
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 550, 130, 30));
+        cbLastEduc.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        cbLastEduc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SD", "SMP", "SMA", "SMK", "D3", "S1", "S2", "S3" }));
+        cbLastEduc.setOpaque(false);
+        jPanel2.add(cbLastEduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 550, 130, 30));
 
         jLabel15.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(153, 153, 153));
         jLabel15.setText("SKILL");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, -1, 20));
 
-        jTextField7.setBackground(new java.awt.Color(38, 38, 38));
-        jTextField7.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(242, 242, 242));
-        jTextField7.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
-        jTextField7.setCaretColor(new java.awt.Color(242, 242, 242));
-        jTextField7.setOpaque(false);
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        tfSkillRegister.setBackground(new java.awt.Color(38, 38, 38));
+        tfSkillRegister.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        tfSkillRegister.setForeground(new java.awt.Color(242, 242, 242));
+        tfSkillRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
+        tfSkillRegister.setCaretColor(new java.awt.Color(242, 242, 242));
+        tfSkillRegister.setOpaque(false);
+        tfSkillRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                tfSkillRegisterActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 620, 400, 40));
+        jPanel2.add(tfSkillRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 620, 400, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 750));
 
@@ -247,39 +257,39 @@ public class register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void tfPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPhoneNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_tfPhoneNumberActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void tfUsernameRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameRegisterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_tfUsernameRegisterActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void tfAddressRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfAddressRegisterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_tfAddressRegisterActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void tfNameRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNameRegisterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_tfNameRegisterActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void tfEmailRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailRegisterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_tfEmailRegisterActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void tfSkillRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSkillRegisterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_tfSkillRegisterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JButton btnRegister;
+    private javax.swing.JComboBox<String> cbLastEduc;
+    private com.toedter.calendar.JDateChooser dcBirthDay;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -294,12 +304,110 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JPasswordField pfPassRegister;
+    private javax.swing.JTextField tfAddressRegister;
+    private javax.swing.JTextField tfEmailRegister;
+    private javax.swing.JTextField tfNameRegister;
+    private javax.swing.JTextField tfPhoneNumber;
+    private javax.swing.JTextField tfSkillRegister;
+    private javax.swing.JTextField tfUsernameRegister;
     // End of variables declaration//GEN-END:variables
+
+    public String getPfPassRegister() {
+        return pfPassRegister.getText();
+    }
+
+    public String getTfAddressRegister() {
+        return tfAddressRegister.getText();
+    }
+
+    public String getTfEmailRegister() {
+        return tfEmailRegister.getText();
+    }
+
+    public String getTfNameRegister() {
+        return tfNameRegister.getText();
+    }
+
+    public String getTfPhoneNumber() {
+        return tfPhoneNumber.getText();
+    }
+
+    public String getTfSkillRegister() {
+        return tfSkillRegister.getText();
+    }
+
+    public String getTfUsernameRegister() {
+        return tfUsernameRegister.getText();
+    }
+
+    public String getDcBirthDay() {
+        Date tgl = dcBirthDay.getDate();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(tgl);
+    }
+
+    public String getCbLastEduc() {
+        int i = cbLastEduc.getSelectedIndex();
+        return cbLastEduc.getItemAt(i);
+    }
+
+    public JButton getBtnRegister() {
+        return btnRegister;
+    }
+
+    public void setPfPassRegister(String x) {
+        pfPassRegister.setText(x);
+    }
+
+    public void setTfAddressRegister(String x) {
+        tfAddressRegister.setText(x);
+    }
+
+    public void setTfEmailRegister(String x) {
+        tfEmailRegister.setText(x);
+    }
+
+    public void setTfNameRegister(String x) {
+        tfNameRegister.setText(x);
+    }
+
+    public void setTfPhoneNumber(String x) {
+        tfPhoneNumber.setText(x);
+    }
+
+    public void setTfSkillRegister(String x) {
+        tfSkillRegister.setText(x);
+    }
+
+    public void setTfUsernameRegister(String x) {
+        tfUsernameRegister.setText(x);
+    }
+
+    public void reset(){
+        setPfPassRegister("");
+        setTfNameRegister("");
+        setTfUsernameRegister("");
+        setTfEmailRegister("");
+        setTfPhoneNumber("");
+        setTfSkillRegister("");
+        setTfAddressRegister("");
+        cbLastEduc.setSelectedIndex(0);
+        dcBirthDay.setDate(new Date());
+    }
+    
+    public void addActionListener(ActionListener x){
+        btnRegister.addActionListener(x);
+    }
+    
+    public void showMessage(String message, String title, int type){
+        JOptionPane.showMessageDialog(null, message, title, type);
+    }
+    
+    
+    
+    
+    
+
+    
 }
