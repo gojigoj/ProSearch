@@ -63,6 +63,7 @@ public class Database {
             while (rs.next()){
                 listUser.add(new User(rs.getString("name"), rs.getString("username"), rs.getString("password"), rs.getString("birthday"),rs.getString("address"),rs.getString("nohp"),rs.getString("email"),rs.getString("lasteduc"),rs.getString("skill")));
             }
+            System.out.println("Test");
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -77,6 +78,7 @@ public class Database {
             while (rs.next()){
                 listProject.add(new Project(rs.getString("kode_product"), rs.getString("tanggal"), rs.getInt("deadline"), rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
             }
+            System.out.println("Test");
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }

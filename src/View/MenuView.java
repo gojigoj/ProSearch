@@ -65,7 +65,7 @@ public class MenuView extends javax.swing.JFrame {
         tabpProject = new javax.swing.JTabbedPane();
         panelBProject = new javax.swing.JPanel();
         scrolltabProject = new javax.swing.JScrollPane();
-        tabBProject = new javax.swing.JTable();
+        tbBProject = new javax.swing.JTable();
         tfCategoryProject = new javax.swing.JTextField();
         tfTitleProject = new javax.swing.JTextField();
         scrollpDescProject = new javax.swing.JScrollPane();
@@ -411,37 +411,32 @@ public class MenuView extends javax.swing.JFrame {
 
         scrolltabProject.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(89, 89, 89)));
 
-        tabBProject.setBackground(new java.awt.Color(242, 242, 242));
-        tabBProject.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        tabBProject.setModel(new javax.swing.table.DefaultTableModel(
+        tbBProject.setBackground(new java.awt.Color(242, 242, 242));
+        tbBProject.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tbBProject.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        tbBProject.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title", "Category", "Budget", "Deadline"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tabBProject.setGridColor(new java.awt.Color(89, 89, 89));
-        tabBProject.setMinimumSize(new java.awt.Dimension(60, 0));
-        tabBProject.setPreferredSize(new java.awt.Dimension(300, 0));
-        tabBProject.setRowHeight(30);
-        tabBProject.setRowMargin(1);
-        tabBProject.setSelectionBackground(new java.awt.Color(89, 89, 89));
-        scrolltabProject.setViewportView(tabBProject);
-        if (tabBProject.getColumnModel().getColumnCount() > 0) {
-            tabBProject.getColumnModel().getColumn(3).setHeaderValue("Deadline");
-        }
+        tbBProject.setGridColor(new java.awt.Color(89, 89, 89));
+        tbBProject.setMinimumSize(new java.awt.Dimension(60, 0));
+        tbBProject.setPreferredSize(new java.awt.Dimension(300, 0));
+        tbBProject.setRowHeight(30);
+        tbBProject.setRowMargin(1);
+        tbBProject.setSelectionBackground(new java.awt.Color(89, 89, 89));
+        scrolltabProject.setViewportView(tbBProject);
 
         tfCategoryProject.setEditable(false);
         tfCategoryProject.setBackground(new java.awt.Color(242, 242, 242));
@@ -1920,12 +1915,12 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JTextArea taDescService;
     private javax.swing.JTable tabBCommunity;
     private javax.swing.JTable tabBProduct;
-    private javax.swing.JTable tabBProject;
     private javax.swing.JTable tabBService;
     private javax.swing.JTabbedPane tabpCommunity;
     private javax.swing.JTabbedPane tabpProduct;
     private javax.swing.JTabbedPane tabpProject;
     private javax.swing.JTabbedPane tabpService;
+    private javax.swing.JTable tbBProject;
     private javax.swing.JTextField tfBudProject;
     private javax.swing.JTextField tfBudgetCProject;
     private javax.swing.JTextField tfCategoryCommunity;
@@ -1974,12 +1969,12 @@ public class MenuView extends javax.swing.JFrame {
         return cbSearchProject.getSelectedItem().toString();
     }
 
-    public JTable getTabBProject() {
-        return tabBProject;
+    public JTable getTbBProject() {
+        return tbBProject;
     }
 
     public int getSelectedProject(){
-        return tabBProject.getSelectedRow();
+        return tbBProject.getSelectedRow();
     }
 
     public JButton getBtnApplyProject() {
@@ -1990,8 +1985,8 @@ public class MenuView extends javax.swing.JFrame {
         cbSearchProject.setSelectedItem(x);
     }
 
-    public void setTabBProject(DefaultTableModel x) {
-        tabBProject.setModel(x);
+    public void setTbBProject(DefaultTableModel x) {
+        tbBProject.setModel(x);
     }
 
     public void setTaDescProject(String x) {
@@ -2023,7 +2018,6 @@ public class MenuView extends javax.swing.JFrame {
         tfTitleProject.setText(x);
     }
     
-    
 
     public void reset(){
         cbSearchProject.setSelectedIndex(0);
@@ -2041,7 +2035,7 @@ public class MenuView extends javax.swing.JFrame {
     }
     
     public void addMouseAdapter(MouseAdapter x){
-        tabBProject.addMouseListener(x);
+        tbBProject.addMouseListener(x);
         btnProject.addMouseListener(x);
         btnService.addMouseListener(x);
         btnProduct.addMouseListener(x);

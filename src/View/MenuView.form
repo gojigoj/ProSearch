@@ -571,20 +571,25 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="tabBProject">
+                            <Component class="javax.swing.JTable" name="tbBProject">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                                </Property>
+                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                                    <EtchetBorder/>
+                                  </Border>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat Light" size="16" style="0"/>
                                 </Property>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="4" rowCount="4">
+                                  <Table columnCount="4" rowCount="0">
                                     <Column editable="false" title="Title" type="java.lang.Object"/>
                                     <Column editable="false" title="Category" type="java.lang.Object"/>
-                                    <Column editable="false" title="Budget" type="java.lang.Object"/>
-                                    <Column editable="false" title="Deadline" type="java.lang.Object"/>
+                                    <Column editable="true" title="Budget" type="java.lang.Object"/>
+                                    <Column editable="true" title="Deadline" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -605,7 +610,7 @@
                                       <Renderer/>
                                     </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title value="Deadline"/>
+                                      <Title/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
@@ -629,6 +634,9 @@
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
                               </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="MenuView_tabBProject"/>
+                              </AuxValues>
                             </Component>
                           </SubComponents>
                         </Container>

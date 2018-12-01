@@ -13,6 +13,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.View;
 
 /**
  *
@@ -33,12 +34,16 @@ public class ControllerBrowseProject extends MouseAdapter implements ActionListe
     
     public void loadTableProject(){
         db.loadProject();
-        DefaultTableModel model = new DefaultTableModel(new String[]{"Title", "Category", "Budget", "Deadline"}, 0);
+        System.out.println("test1");
+        String[] judul = {"Title", "Category", "Budget", "Deadline"};
+        DefaultTableModel model = new DefaultTableModel(judul, 0);
+        view.setTbBProject(model);
+        System.out.println("test3");
         ArrayList<Project> project = db.getListProject();
+        System.out.println("test2");
         for (Project p : project) {
             model.addRow(new Object[]{p.getTitle(), p.getKategori(), p.getPrice(), p.getDeadline()});
         }
-        view.setTabBProject(model);
     }
     
     @Override
@@ -48,12 +53,12 @@ public class ControllerBrowseProject extends MouseAdapter implements ActionListe
     
     public void mousePressed(MouseEvent me){
         Object source = me.getSource();
-        if (source.equals(view.getTabBProject())){
+        if (source.equals(view.getTbBProject())){
             int i = view.getSelectedProject();
-            String title = view.getTabBProject().getModel().getValueAt(i, i).toString();
-            String Category = view.getTabBProject().getModel().getValueAt(i, 1).toString();
-            String budget = view.getTabBProject().getModel().getValueAt(i, 2).toString();
-            String Deadline = view.getTabBProject().getModel().getValueAt(i, 4).toString();
+            String title = view.getTbBProject().getModel().getValueAt(i, i).toString();
+            String Category = view.getTbBProject().getModel().getValueAt(i, 1).toString();
+            String budget = view.getTbBProject().getModel().getValueAt(i, 2).toString();
+            String Deadline = view.getTbBProject().getModel().getValueAt(i, 4).toString();
             
             view.setTfTitleProject(title);
             view.setTfCategoryProject(Category);
