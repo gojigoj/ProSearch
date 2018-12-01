@@ -2,6 +2,7 @@
 package Model;
 
 
+import Model.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -19,6 +20,7 @@ public class Database {
     private Statement stmt = null;
     private ResultSet rs = null;
     private ArrayList<User> listUser = new ArrayList();
+    private ArrayList<Project> listProject = new ArrayList();
     
     public void connect(){
         try {
@@ -67,6 +69,30 @@ public class Database {
         disconnect();
     }
     
+    public void loadProject() {
+        connect();
+        try {
+            String query = "select * from product join project using (kode_product)";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                listProject.add(new Project(rs.getString("kode_product"), rs.getString("tanggal"), rs.getInt("deadline"), rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
+
+    public ArrayList<Project> getListProject() {
+        return listProject;
+    }
+
+    public ArrayList<User> getListUser() {
+        return listUser;
+    }
+        
+    
+    
     public boolean cekUsername(String username){
         boolean cek = false;
         for (User usr : listUser){
@@ -91,8 +117,6 @@ public class Database {
         return cek;
     }
     
-    
-    
     public void addUser(User x) {
         connect();
         String query = "INSERT INTO user VALUES (";
@@ -109,6 +133,7 @@ public class Database {
         if (manipulate(query)) listUser.add(x);
         disconnect();
     }
+    
     
     
 }

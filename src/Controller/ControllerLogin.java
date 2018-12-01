@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Model.Database;
+import Model.Database.*;
 import Model.*;
 import View.*;
 import java.awt.event.ActionEvent;
@@ -42,8 +44,8 @@ public class ControllerLogin extends MouseAdapter implements ActionListener{
     public void btnLoginActionPerformed(){
         if(db.cekUsername(view.getTfUsernameL()) && db.cekPassword(view.getPfPasswordL())){
             view.showMessage("Anda Berhasil Login", "Success", 1);
-            new MenuView().setVisible(true);
             view.setVisible(false);
+            new ControllerViewMenu();
         } else {
             view.showMessage("Username yang anda masukkan salah/tidak ada", "Failed", 0);
         }

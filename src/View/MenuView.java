@@ -6,7 +6,18 @@
 package View;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -400,7 +411,6 @@ public class MenuView extends javax.swing.JFrame {
 
         scrolltabProject.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(89, 89, 89)));
 
-        tabBProject.setAutoCreateRowSorter(true);
         tabBProject.setBackground(new java.awt.Color(242, 242, 242));
         tabBProject.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         tabBProject.setModel(new javax.swing.table.DefaultTableModel(
@@ -423,8 +433,10 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
         tabBProject.setGridColor(new java.awt.Color(89, 89, 89));
-        tabBProject.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        tabBProject.setMinimumSize(new java.awt.Dimension(60, 0));
+        tabBProject.setPreferredSize(new java.awt.Dimension(300, 0));
         tabBProject.setRowHeight(30);
+        tabBProject.setRowMargin(1);
         tabBProject.setSelectionBackground(new java.awt.Color(89, 89, 89));
         scrolltabProject.setViewportView(tabBProject);
         if (tabBProject.getColumnModel().getColumnCount() > 0) {
@@ -1622,145 +1634,51 @@ public class MenuView extends javax.swing.JFrame {
     private void btnProjectMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectMousePressed
         // TODO add your handling code here:
         // remove panel
-        PanelMain.removeAll();
-        PanelMain.repaint();
-        PanelMain.revalidate();
-
-        onClick(btnProject);
-        onleaveClick(btnService);
-        onleaveClick(btnProduct);
-        onleaveClick(btnCommunity);
-        
-        IndicatorProject.setVisible(true);
-        IndicatorService.setVisible(false);
-        IndicatorProduct.setVisible(false);
-        IndicatorCommunity.setVisible(false);
-        
-        // add panel
-        PanelMain.add(ProjectPanel);
-        PanelMain.repaint();
-        PanelMain.revalidate();
     }//GEN-LAST:event_btnProjectMousePressed
 
     private void btnServiceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiceMousePressed
         // TODO add your handling code here:
         // remove panel
-        PanelMain.removeAll();
-        PanelMain.repaint();
-        PanelMain.revalidate();
-
-        onClick(btnService);
-        onleaveClick(btnProject);
-        onleaveClick(btnProduct);
-        onleaveClick(btnCommunity);
-        
-        IndicatorService.setVisible(true);
-        IndicatorProject.setVisible(false);
-        IndicatorProduct.setVisible(false);
-        IndicatorCommunity.setVisible(false);
-        
-        // add panel
-        PanelMain.add(ServicePanel);
-        PanelMain.repaint();
-        PanelMain.revalidate();
     }//GEN-LAST:event_btnServiceMousePressed
 
     private void btnProductMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductMousePressed
         // TODO add your handling code here:
-        // remove panel
-        PanelMain.removeAll();
-        PanelMain.repaint();
-        PanelMain.revalidate();
-
-        onClick(btnProduct);
-        onleaveClick(btnProject);
-        onleaveClick(btnService);
-        onleaveClick(btnCommunity);
-        
-        IndicatorProduct.setVisible(true);
-        IndicatorProject.setVisible(false);
-        IndicatorService.setVisible(false);
-        IndicatorCommunity.setVisible(false);
-        
-        // add panel
-        PanelMain.add(ProductPanel);
-        PanelMain.repaint();
-        PanelMain.revalidate();
     }//GEN-LAST:event_btnProductMousePressed
 
     private void btnCommunityMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCommunityMousePressed
         // TODO add your handling code here:
-        // remove panel
-        PanelMain.removeAll();
-        PanelMain.repaint();
-        PanelMain.revalidate();
-
-        onClick(btnCommunity);
-        onleaveClick(btnProject);
-        onleaveClick(btnService);
-        onleaveClick(btnProduct);
-        
-        IndicatorCommunity.setVisible(true);
-        IndicatorProject.setVisible(false);
-        IndicatorService.setVisible(false);
-        IndicatorProduct.setVisible(false);
-        
-        // add panel
-        PanelMain.add(CommunityPanel);
-        PanelMain.repaint();
-        PanelMain.revalidate();
     }//GEN-LAST:event_btnCommunityMousePressed
 
     private void btnProjectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectMouseEntered
         // TODO add your handling code here:
-        onHover(btnProject);
-        onLeaveHover(btnService);
-        onLeaveHover(btnProduct);
-        onLeaveHover(btnCommunity);
     }//GEN-LAST:event_btnProjectMouseEntered
 
     private void btnServiceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiceMouseEntered
         // TODO add your handling code here:
-        onHover(btnService);
-        onLeaveHover(btnProject);
-        onLeaveHover(btnProduct);
-        onLeaveHover(btnCommunity);
     }//GEN-LAST:event_btnServiceMouseEntered
 
     private void btnProductMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductMouseEntered
         // TODO add your handling code here:
-        onHover(btnProduct);
-        onLeaveHover(btnProject);
-        onLeaveHover(btnService);
-        onLeaveHover(btnCommunity);
     }//GEN-LAST:event_btnProductMouseEntered
 
     private void btnCommunityMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCommunityMouseEntered
         // TODO add your handling code here:
-        onHover(btnCommunity);
-        onLeaveHover(btnProject);
-        onLeaveHover(btnProduct);
-        onLeaveHover(btnService);
     }//GEN-LAST:event_btnCommunityMouseEntered
 
     private void btnProjectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectMouseExited
         // TODO add your handling code here:
-        onLeaveHover(btnProject);
     }//GEN-LAST:event_btnProjectMouseExited
 
     private void btnServiceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnServiceMouseExited
         // TODO add your handling code here:
-        onLeaveHover(btnService);
     }//GEN-LAST:event_btnServiceMouseExited
 
     private void btnProductMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductMouseExited
         // TODO add your handling code here:
-        onLeaveHover(btnProduct);
     }//GEN-LAST:event_btnProductMouseExited
 
     private void btnCommunityMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCommunityMouseExited
         // TODO add your handling code here:
-        onLeaveHover(btnCommunity);
     }//GEN-LAST:event_btnCommunityMouseExited
 
     private void tfTitleCProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTitleCProjectActionPerformed
@@ -1887,61 +1805,7 @@ public class MenuView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPriceActionPerformed
 
-    public void onHover(JPanel panel){
-        panel.setBackground(new Color(204,204,204));
-    }
     
-    public void onLeaveHover(JPanel panel){
-        panel.setBackground(new Color(38,38,38));
-    }
-    
-    public void onClick(JPanel panel){
-        panel.setBackground(new Color(204,204,204));
-    }
-    
-    public void onleaveClick(JPanel panel){
-        panel.setBackground(new Color(38,38,38));
-    }
-    
-    
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuView().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CommunityPanel;
@@ -2097,4 +1961,150 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JLabel titleProject;
     private javax.swing.JLabel titleService;
     // End of variables declaration//GEN-END:variables
+
+    
+
+    
+    
+    //This is setter getter from Project Menu
+    
+    //Browse Project
+
+    public String getCbSearchProject() {
+        return cbSearchProject.getSelectedItem().toString();
+    }
+
+    public JTable getTabBProject() {
+        return tabBProject;
+    }
+
+    public int getSelectedProject(){
+        return tabBProject.getSelectedRow();
+    }
+
+    public JButton getBtnApplyProject() {
+        return btnApplyProject;
+    }
+
+    public void setCbSearchProject(String x) {
+        cbSearchProject.setSelectedItem(x);
+    }
+
+    public void setTabBProject(DefaultTableModel x) {
+        tabBProject.setModel(x);
+    }
+
+    public void setTaDescProject(String x) {
+        taDescProject.setText(x);
+    }
+
+    public void setTfBudProject(int x) {
+        tfBudProject.setText(Integer.toString(x));
+    }
+
+    public void setTfDateProject(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        tfDateProject.setText(sdf.format(date));
+    }
+
+    public void setTfDeadlineProject(int x) {
+        tfDeadlineProject.setText(Integer.toString(x));
+    }
+
+    public void setTfCategoryProject(String x) {
+        tfCategoryProject.setText(x);
+    }
+
+    public void setTfNameProject(String x) {
+        tfNameProject.setText(x);
+    }
+
+    public void setTfTitleProject(String x) {
+        tfTitleProject.setText(x);
+    }
+    
+    
+
+    public void reset(){
+        cbSearchProject.setSelectedIndex(0);
+        setTfTitleProject("");
+        setTfCategoryProject("");
+        setTfNameProject("");
+        setTaDescProject("");
+        setTfBudProject(0);
+        setTfDateProject(new Date("1/1/1990"));
+        setTfDeadlineProject(0);
+    }
+        
+    public void addActionListener(ActionListener x){
+        btnApplyProject.addActionListener(x);
+    }
+    
+    public void addMouseAdapter(MouseAdapter x){
+        tabBProject.addMouseListener(x);
+        btnProject.addMouseListener(x);
+        btnService.addMouseListener(x);
+        btnProduct.addMouseListener(x);
+        btnCommunity.addMouseListener(x);
+    }
+
+    public JPanel getBtnCommunity() {
+        return btnCommunity;
+    }
+
+    public JPanel getBtnProduct() {
+        return btnProduct;
+    }
+
+    public JPanel getBtnProject() {
+        return btnProject;
+    }
+
+    public JPanel getBtnService() {
+        return btnService;
+    }
+
+    public JPanel getIndicatorCommunity() {
+        return IndicatorCommunity;
+    }
+
+    public JPanel getIndicatorProduct() {
+        return IndicatorProduct;
+    }
+
+    public JPanel getIndicatorProject() {
+        return IndicatorProject;
+    }
+
+    public JPanel getIndicatorService() {
+        return IndicatorService;
+    }
+
+    public JPanel getPanelMain() {
+        return PanelMain;
+    }
+
+    public JPanel getProductPanel() {
+        return ProductPanel;
+    }
+
+    public JPanel getCommunityPanel() {
+        return CommunityPanel;
+    }
+
+    public JPanel getProjectPanel() {
+        return ProjectPanel;
+    }
+
+    public JPanel getServicePanel() {
+        return ServicePanel;
+    }
+
+    
+    
+    public void showMessage(String message, String title, int type){
+        JOptionPane.showMessageDialog(null, message, title, type);
+    }
+        
+    
 }

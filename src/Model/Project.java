@@ -4,33 +4,23 @@ package Model;
 import java.sql.Date;
 
 public class Project extends Product{
-    private char projectId;
-    private String Status;
+    private String projectId;
     private String tanggal;
     private int deadline;
 
-    public Project(char projectId, String Status, String tanggal, int deadline, String title, int price, String kategori, String deskripsi) {
+    public Project(String projectId, String tanggal, int deadline, String title, int price, String kategori, String deskripsi) {
         super(title, price, kategori, deskripsi);
         this.projectId = projectId;
-        this.Status = Status;
         this.tanggal = tanggal;
         this.deadline = deadline;
     }
 
-    public char getProjectId() {
+    public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(char projectId) {
+    public void setProjectId(String projectId) {
         this.projectId = projectId;
-    }
-
-    public String getStatus() {
-        return Status;
-    }
-
-    public void setStatus(String Status) {
-        this.Status = Status;
     }
 
     public String getTanggal() {
@@ -48,6 +38,7 @@ public class Project extends Product{
     public void setDeadline(int deadline) {
         this.deadline = deadline;
     }
+    
     
     
     

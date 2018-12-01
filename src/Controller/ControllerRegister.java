@@ -1,6 +1,8 @@
 
 package Controller;
 
+import Model.Database;
+import Model.Database.*;
 import Model.*;
 import View.*;
 import java.awt.event.ActionEvent;
