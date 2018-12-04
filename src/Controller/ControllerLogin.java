@@ -42,10 +42,14 @@ public class ControllerLogin extends MouseAdapter implements ActionListener{
     }
     
     public void btnLoginActionPerformed(){
-        if(db.cekUsername(view.getTfUsernameL()) && db.cekPassword(view.getPfPasswordL())){
-            view.showMessage("Anda Berhasil Login", "Success", 1);
-            view.setVisible(false);
-            new ControllerViewMenu();
+        if (db.cekUsername(view.getTfUsernameL())) {
+            if (db.cekPassword(view.getPfPasswordL())){
+                view.showMessage("Anda Berhasil Login", "Success", 1);
+                view.setVisible(false);
+                new ControllerViewMenu();
+            } else {
+                view.showMessage("Password yang anda masukkan salah", "Failed", 0);
+            }
         } else {
             view.showMessage("Username yang anda masukkan salah/tidak ada", "Failed", 0);
         }

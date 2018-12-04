@@ -15,6 +15,7 @@ public class User {
     private String skill;
     private int numJual = 0;
     private int numBeli = 0;
+    private int maxJB = 101;
     private Product[] listJual;
     private Product[] listBeli;
 
@@ -28,6 +29,8 @@ public class User {
         this.email = email;
         this.lastEduc = lastEduc;
         this.skill = skill;
+        listJual = new Product[maxJB];
+        listBeli = new Product[maxJB];
     }
 
 
@@ -37,13 +40,17 @@ public class User {
     }
     
     public void AddJual(Product jual){
-        listJual[numJual] = jual;
-        numJual++;
+        if (numJual < maxJB){
+            listJual[numJual] = jual;
+            numJual++;
+        }
     }
     
     public void AddBeli(Product beli){
-        listBeli[numBeli] = beli;
-        numBeli++;
+        if (numBeli < maxJB){
+            listJual[numJual] = beli;
+            numBeli++;
+        }
     }
     
     public String getName() {

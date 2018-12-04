@@ -21,6 +21,8 @@ public class Database {
     private ResultSet rs = null;
     private ArrayList<User> listUser = new ArrayList();
     private ArrayList<Project> listProject = new ArrayList();
+    private ArrayList<Service> listService = new ArrayList();
+    private ArrayList<ProductJadi> listProduct = new ArrayList();
     
     public void connect(){
         try {
@@ -63,7 +65,28 @@ public class Database {
             while (rs.next()){
                 listUser.add(new User(rs.getString("name"), rs.getString("username"), rs.getString("password"), rs.getString("birthday"),rs.getString("address"),rs.getString("nohp"),rs.getString("email"),rs.getString("lasteduc"),rs.getString("skill")));
             }
-            System.out.println("Test");
+            for (User o : listUser){
+//                String querypro = "select * from product where username = " + "'" + o.getUsername() + "'";
+//                rs = stmt.executeQuery(querypro);
+//                while(rs.next()){
+//                    o.AddJual(new Product(rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
+//                }
+                String queryprj = "select * from product join project using (kode_product) where kode_product like 'PRJ%' and username = " + "'" + o.getUsername() + "'";
+                rs = stmt.executeQuery(queryprj);
+                while (rs.next()){
+                    o.AddJual(new Project(rs.getString("kode_product"), rs.getString("tanggal"), rs.getInt("deadline"), rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
+                }
+                String querysrv = "select * from product join service using (kode_product) where kode_product like 'SRV%' and username = " + "'" + o.getUsername() + "'";
+                rs = stmt.executeQuery(querysrv);
+                while (rs.next()){
+                    o.AddJual(new Service(rs.getString("kode_product"), rs.getInt("deadline"), rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
+                }
+                String queryprd = "select * from product join productjadi using (kode_product) where kode_product like 'PRD%' and username = " + "'" + o.getUsername() + "'";
+                rs = stmt.executeQuery(queryprd);
+                while (rs.next()){
+                    o.AddJual(new ProductJadi(rs.getString("kode_product"), rs.getString("title"), rs.getInt("price"), rs.getString("kategori"), rs.getString("deskripsi")));
+                }
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -73,7 +96,7 @@ public class Database {
     public void loadProject() {
         connect();
         try {
-            String query = "select * from product join project using (kode_product)";
+            String query = "select * from product join project using (kode_product) where kode_product like 'PRJ%'";
             rs = stmt.executeQuery(query);
             while (rs.next()){
                 listProject.add(new Project(rs.getString("kode_product"), rs.getString("tanggal"), rs.getInt("deadline"), rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
@@ -85,16 +108,50 @@ public class Database {
         disconnect();
     }
 
-    public ArrayList<Project> getListProject() {
-        return listProject;
+    public void loadService() {
+        connect();
+        try {
+            String query = "select * from product join service using (kode_product) where kode_product like 'SRV%'";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                listService.add(new Service(rs.getString("kode_product"), rs.getInt("deadline"), rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
     }
-
+    
+    public void loadProduct() {
+        connect();
+        try {
+            String query = "select * from product join productjadi using (kode_product) where kode_product like 'PRD%'";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                listProduct.add(new ProductJadi(rs.getString("kode_product"), rs.getString("title"), rs.getInt("price"), rs.getString("kategori"), rs.getString("deskripsi")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
+    
     public ArrayList<User> getListUser() {
         return listUser;
     }
-        
     
+    public ArrayList<Project> getListProject() {
+        return listProject;
+    }
     
+    public ArrayList<Service> getListService() {
+        return listService;
+    }
+    
+    public ArrayList<ProductJadi> getListProductJadi() {
+        return listProduct;
+    }
+
     public boolean cekUsername(String username){
         boolean cek = false;
         for (User usr : listUser){
