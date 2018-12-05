@@ -106,36 +106,36 @@ public class MenuView extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         tabpService = new javax.swing.JTabbedPane();
         panelBService = new javax.swing.JPanel();
-        scrolltabService = new javax.swing.JScrollPane();
-        tabBService = new javax.swing.JTable();
+        scrolltabService2 = new javax.swing.JScrollPane();
+        tbBService = new javax.swing.JTable();
         tfCategoryService = new javax.swing.JTextField();
         tfTitleService = new javax.swing.JTextField();
         scrollpDescService = new javax.swing.JScrollPane();
         taDescService = new javax.swing.JTextArea();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        tfPrice = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        tfBudService = new javax.swing.JTextField();
+        jTextField19 = new javax.swing.JTextField();
         tfDeadlineService = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        btnBuyService = new javax.swing.JButton();
-        jLabel21 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        btnSearchService = new javax.swing.JButton();
         cbSearchService = new javax.swing.JComboBox<>();
         tfNameService = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        btnApplyService = new javax.swing.JButton();
         panelSService = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         tfTitleSService = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         cbSellService = new javax.swing.JComboBox<>();
-        tfPriceService = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
+        tfBudgetSService = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         tfDeadlineSService = new javax.swing.JTextField();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
         taDescSService = new javax.swing.JTextArea();
         btnPublishService = new javax.swing.JButton();
         ProductPanel = new javax.swing.JPanel();
@@ -465,13 +465,14 @@ public class MenuView extends javax.swing.JFrame {
         taDescProject.setBackground(new java.awt.Color(242, 242, 242));
         taDescProject.setColumns(20);
         taDescProject.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
+        taDescProject.setLineWrap(true);
         taDescProject.setRows(5);
         taDescProject.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
         taDescProject.setMargin(new java.awt.Insets(20, 20, 20, 20));
         taDescProject.setOpaque(false);
         scrollpDescProject.setViewportView(taDescProject);
 
-        panelBProject.add(scrollpDescProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 369, 742, -1));
+        panelBProject.add(scrollpDescProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 369, 742, 160));
 
         jPanel3.setBackground(new java.awt.Color(38, 38, 38));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -495,7 +496,7 @@ public class MenuView extends javax.swing.JFrame {
                 jTextField18ActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 70, 30));
+        jPanel3.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 70, 30));
 
         tfDateProject.setEditable(false);
         tfDateProject.setBackground(new java.awt.Color(38, 38, 38));
@@ -521,12 +522,12 @@ public class MenuView extends javax.swing.JFrame {
                 tfDeadlineProjectActionPerformed(evt);
             }
         });
-        jPanel3.add(tfDeadlineProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 40, 30));
+        jPanel3.add(tfDeadlineProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 30, 30));
 
         jLabel52.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
         jLabel52.setForeground(new java.awt.Color(242, 242, 242));
         jLabel52.setText("Deadline :");
-        jPanel3.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 80, 30));
+        jPanel3.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 70, 30));
 
         jLabel53.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
         jLabel53.setForeground(new java.awt.Color(242, 242, 242));
@@ -538,7 +539,7 @@ public class MenuView extends javax.swing.JFrame {
         jLabel54.setText("Date Publish :");
         jPanel3.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 100, 30));
 
-        panelBProject.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 742, 54));
+        panelBProject.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 742, 54));
 
         btnSearchProject.setBackground(new java.awt.Color(89, 89, 89));
         btnSearchProject.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
@@ -585,7 +586,7 @@ public class MenuView extends javax.swing.JFrame {
                 btnApplyProjectActionPerformed(evt);
             }
         });
-        panelBProject.add(btnApplyProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 550, 130, 40));
+        panelBProject.add(btnApplyProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 620, 130, 40));
 
         tabpProject.addTab("Browse Project", panelBProject);
 
@@ -680,19 +681,19 @@ public class MenuView extends javax.swing.JFrame {
         taDescCProject.setOpaque(false);
         jScrollPane3.setViewportView(taDescCProject);
 
-        panelCProject.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 750, 140));
+        panelCProject.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 750, 200));
 
         btnPublishProject.setBackground(new java.awt.Color(255, 192, 0));
         btnPublishProject.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         btnPublishProject.setText("PUBLISH");
         btnPublishProject.setToolTipText("");
-        btnPublishProject.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 192, 0)));
+        btnPublishProject.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPublishProject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPublishProjectActionPerformed(evt);
             }
         });
-        panelCProject.add(btnPublishProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 130, 40));
+        panelCProject.add(btnPublishProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 480, 130, 40));
 
         tabpProject.addTab("Create Project", panelCProject);
 
@@ -747,18 +748,16 @@ public class MenuView extends javax.swing.JFrame {
         tabpService.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
 
         panelBService.setBackground(new java.awt.Color(242, 242, 242));
+        panelBService.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        scrolltabService.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(89, 89, 89)));
+        scrolltabService2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(89, 89, 89)));
 
-        tabBService.setAutoCreateRowSorter(true);
-        tabBService.setBackground(new java.awt.Color(242, 242, 242));
-        tabBService.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        tabBService.setModel(new javax.swing.table.DefaultTableModel(
+        tbBService.setAutoCreateRowSorter(true);
+        tbBService.setBackground(new java.awt.Color(242, 242, 242));
+        tbBService.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        tbBService.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title", "Category", "Price", "Deadline"
@@ -772,15 +771,17 @@ public class MenuView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tabBService.setGridColor(new java.awt.Color(89, 89, 89));
-        tabBService.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tabBService.setRowHeight(30);
-        tabBService.setSelectionBackground(new java.awt.Color(89, 89, 89));
-        scrolltabService.setViewportView(tabBService);
+        tbBService.setGridColor(new java.awt.Color(89, 89, 89));
+        tbBService.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        tbBService.setRowHeight(30);
+        tbBService.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        scrolltabService2.setViewportView(tbBService);
+
+        panelBService.add(scrolltabService2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 770, 160));
 
         tfCategoryService.setEditable(false);
         tfCategoryService.setBackground(new java.awt.Color(242, 242, 242));
-        tfCategoryService.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
+        tfCategoryService.setFont(new java.awt.Font("Montserrat Light", 1, 18)); // NOI18N
         tfCategoryService.setText("Category");
         tfCategoryService.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(242, 242, 242)));
         tfCategoryService.setOpaque(false);
@@ -789,61 +790,52 @@ public class MenuView extends javax.swing.JFrame {
                 tfCategoryServiceActionPerformed(evt);
             }
         });
+        panelBService.add(tfCategoryService, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 331, 300, 31));
 
         tfTitleService.setEditable(false);
         tfTitleService.setBackground(new java.awt.Color(242, 242, 242));
-        tfTitleService.setFont(new java.awt.Font("Montserrat Medium", 0, 24)); // NOI18N
+        tfTitleService.setFont(new java.awt.Font("Montserrat SemiBold", 0, 24)); // NOI18N
         tfTitleService.setText("Title");
         tfTitleService.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(242, 242, 242)));
         tfTitleService.setOpaque(false);
+        panelBService.add(tfTitleService, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 279, 757, 45));
 
         taDescService.setEditable(false);
         taDescService.setBackground(new java.awt.Color(242, 242, 242));
         taDescService.setColumns(20);
-        taDescService.setFont(new java.awt.Font("Montserrat ExtraLight", 0, 14)); // NOI18N
+        taDescService.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
+        taDescService.setLineWrap(true);
         taDescService.setRows(5);
         taDescService.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
+        taDescService.setMargin(new java.awt.Insets(20, 20, 20, 20));
         taDescService.setOpaque(false);
         scrollpDescService.setViewportView(taDescService);
 
-        jPanel2.setBackground(new java.awt.Color(38, 38, 38));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelBService.add(scrollpDescService, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 369, 742, 160));
 
-        jLabel18.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(242, 242, 242));
-        jLabel18.setText("Price :");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 20, 50, -1));
+        jPanel6.setBackground(new java.awt.Color(38, 38, 38));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel20.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(242, 242, 242));
-        jLabel20.setText("Deadline :");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
+        tfBudService.setEditable(false);
+        tfBudService.setBackground(new java.awt.Color(38, 38, 38));
+        tfBudService.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
+        tfBudService.setForeground(new java.awt.Color(242, 242, 242));
+        tfBudService.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
+        jPanel6.add(tfBudService, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 30));
 
-        tfPrice.setEditable(false);
-        tfPrice.setBackground(new java.awt.Color(38, 38, 38));
-        tfPrice.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
-        tfPrice.setForeground(new java.awt.Color(242, 242, 242));
-        tfPrice.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
-        tfPrice.addActionListener(new java.awt.event.ActionListener() {
+        jTextField19.setEditable(false);
+        jTextField19.setBackground(new java.awt.Color(38, 38, 38));
+        jTextField19.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
+        jTextField19.setForeground(new java.awt.Color(242, 242, 242));
+        jTextField19.setText("Days");
+        jTextField19.setToolTipText("");
+        jTextField19.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
+        jTextField19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPriceActionPerformed(evt);
+                jTextField19ActionPerformed(evt);
             }
         });
-        jPanel2.add(tfPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 130, 30));
-
-        jTextField11.setEditable(false);
-        jTextField11.setBackground(new java.awt.Color(38, 38, 38));
-        jTextField11.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
-        jTextField11.setForeground(new java.awt.Color(242, 242, 242));
-        jTextField11.setText("Days");
-        jTextField11.setToolTipText("");
-        jTextField11.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 70, 30));
+        jPanel6.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 70, 30));
 
         tfDeadlineService.setEditable(false);
         tfDeadlineService.setBackground(new java.awt.Color(38, 38, 38));
@@ -856,41 +848,40 @@ public class MenuView extends javax.swing.JFrame {
                 tfDeadlineServiceActionPerformed(evt);
             }
         });
-        jPanel2.add(tfDeadlineService, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 80, 30));
+        jPanel6.add(tfDeadlineService, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 30, 30));
 
-        jTextField13.setEditable(false);
-        jTextField13.setBackground(new java.awt.Color(38, 38, 38));
-        jTextField13.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
-        jTextField13.setForeground(new java.awt.Color(242, 242, 242));
-        jTextField13.setToolTipText("");
-        jTextField13.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
+        jLabel55.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(242, 242, 242));
+        jLabel55.setText("Deadline :");
+        jPanel6.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, 30));
+
+        jLabel56.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(242, 242, 242));
+        jLabel56.setText("Price :");
+        jPanel6.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 30));
+
+        panelBService.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 742, 54));
+
+        btnSearchService.setBackground(new java.awt.Color(89, 89, 89));
+        btnSearchService.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        btnSearchService.setForeground(new java.awt.Color(242, 242, 242));
+        btnSearchService.setText("Search");
+        btnSearchService.setToolTipText("");
+        btnSearchService.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSearchService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
+                btnSearchServiceActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 70, 30));
-
-        btnBuyService.setBackground(new java.awt.Color(255, 192, 0));
-        btnBuyService.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
-        btnBuyService.setText("BUY");
-        btnBuyService.setToolTipText("");
-        btnBuyService.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 192, 0)));
-        btnBuyService.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuyServiceActionPerformed(evt);
-            }
-        });
-
-        jLabel21.setFont(new java.awt.Font("Montserrat Medium", 0, 16)); // NOI18N
-        jLabel21.setText("Search by Category");
+        panelBService.add(btnSearchService, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 130, 30));
 
         cbSearchService.setFont(new java.awt.Font("Montserrat Medium", 0, 16)); // NOI18N
         cbSearchService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "3D Modeling & Animation", "Layout/Logo/Graphic Design", "Audio/Video/Photography", "Writing & Translation", "Website Development" }));
+        panelBService.add(cbSearchService, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 243, -1));
 
         tfNameService.setEditable(false);
         tfNameService.setBackground(new java.awt.Color(242, 242, 242));
-        tfNameService.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
+        tfNameService.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         tfNameService.setForeground(new java.awt.Color(255, 102, 51));
         tfNameService.setText("Name");
         tfNameService.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(242, 242, 242)));
@@ -900,76 +891,33 @@ public class MenuView extends javax.swing.JFrame {
                 tfNameServiceActionPerformed(evt);
             }
         });
+        panelBService.add(tfNameService, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 320, 31));
 
-        javax.swing.GroupLayout panelBServiceLayout = new javax.swing.GroupLayout(panelBService);
-        panelBService.setLayout(panelBServiceLayout);
-        panelBServiceLayout.setHorizontalGroup(
-            panelBServiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBServiceLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelBServiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBServiceLayout.createSequentialGroup()
-                        .addGroup(panelBServiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrolltabService)
-                            .addGroup(panelBServiceLayout.createSequentialGroup()
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbSearchService, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBServiceLayout.createSequentialGroup()
-                                .addGap(0, 15, Short.MAX_VALUE)
-                                .addGroup(panelBServiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelBServiceLayout.createSequentialGroup()
-                                        .addComponent(tfNameService, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tfCategoryService, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelBServiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
-                                        .addComponent(scrollpDescService, javax.swing.GroupLayout.Alignment.LEADING)))))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBServiceLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(panelBServiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBServiceLayout.createSequentialGroup()
-                                .addComponent(btnBuyService, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBServiceLayout.createSequentialGroup()
-                                .addComponent(tfTitleService, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
-        );
-        panelBServiceLayout.setVerticalGroup(
-            panelBServiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBServiceLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(panelBServiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(cbSearchService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(scrolltabService, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(tfTitleService, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelBServiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfCategoryService, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNameService, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollpDescService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(btnBuyService, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-        );
+        jLabel30.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jLabel30.setText("Owner :");
+        panelBService.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, 30));
+
+        btnApplyService.setBackground(new java.awt.Color(255, 192, 0));
+        btnApplyService.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        btnApplyService.setText("APPLY");
+        btnApplyService.setToolTipText("");
+        btnApplyService.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnApplyService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApplyServiceActionPerformed(evt);
+            }
+        });
+        panelBService.add(btnApplyService, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 620, 130, 40));
 
         tabpService.addTab("Browse Service", panelBService);
 
         panelSService.setBackground(new java.awt.Color(242, 242, 242));
         panelSService.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel22.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(38, 38, 38));
-        jLabel22.setText("CATEGORY");
-        panelSService.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
+        jLabel18.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel18.setText("CATEGORY");
+        panelSService.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
 
         tfTitleSService.setBackground(new java.awt.Color(242, 242, 242));
         tfTitleSService.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
@@ -984,37 +932,37 @@ public class MenuView extends javax.swing.JFrame {
         });
         panelSService.add(tfTitleSService, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 400, 40));
 
-        jLabel23.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(38, 38, 38));
-        jLabel23.setText("TITLE");
-        panelSService.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 20));
+        jLabel20.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel20.setText("TITLE");
+        panelSService.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 20));
 
         cbSellService.setFont(new java.awt.Font("Montserrat Medium", 0, 16)); // NOI18N
         cbSellService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "3D Modeling & Animation", "Layout/Logo/Graphic Design", "Audio/Video/Photography", "Writing & Translation", "Website Development" }));
         panelSService.add(cbSellService, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        tfPriceService.setBackground(new java.awt.Color(242, 242, 242));
-        tfPriceService.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        tfPriceService.setForeground(new java.awt.Color(102, 102, 102));
-        tfPriceService.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(38, 38, 38)));
-        tfPriceService.setCaretColor(new java.awt.Color(38, 38, 38));
-        tfPriceService.setOpaque(false);
-        tfPriceService.addActionListener(new java.awt.event.ActionListener() {
+        tfBudgetSService.setBackground(new java.awt.Color(242, 242, 242));
+        tfBudgetSService.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        tfBudgetSService.setForeground(new java.awt.Color(102, 102, 102));
+        tfBudgetSService.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(38, 38, 38)));
+        tfBudgetSService.setCaretColor(new java.awt.Color(38, 38, 38));
+        tfBudgetSService.setOpaque(false);
+        tfBudgetSService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPriceServiceActionPerformed(evt);
+                tfBudgetSServiceActionPerformed(evt);
             }
         });
-        panelSService.add(tfPriceService, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 360, 40));
+        panelSService.add(tfBudgetSService, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 360, 40));
 
-        jLabel24.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(38, 38, 38));
-        jLabel24.setText("Days");
-        panelSService.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, 20));
+        jLabel21.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel21.setText("Days");
+        panelSService.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, 20));
 
-        jLabel25.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(38, 38, 38));
-        jLabel25.setText("PRICE");
-        panelSService.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, 20));
+        jLabel31.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel31.setText("PRICE");
+        panelSService.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, 20));
 
         tfDeadlineSService.setBackground(new java.awt.Color(242, 242, 242));
         tfDeadlineSService.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
@@ -1029,20 +977,20 @@ public class MenuView extends javax.swing.JFrame {
         });
         panelSService.add(tfDeadlineSService, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 60, 40));
 
-        jLabel26.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(38, 38, 38));
-        jLabel26.setText("DESCRIPTION");
-        panelSService.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, 20));
+        jLabel32.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel32.setText("DESCRIPTION");
+        panelSService.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, 20));
 
-        jLabel27.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(38, 38, 38));
-        jLabel27.setText("Rp.");
-        panelSService.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, 20));
+        jLabel57.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel57.setText("Rp.");
+        panelSService.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, 20));
 
-        jLabel28.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(38, 38, 38));
-        jLabel28.setText("DEADLINE");
-        panelSService.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 20));
+        jLabel58.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel58.setText("DEADLINE");
+        panelSService.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 20));
 
         taDescSService.setBackground(new java.awt.Color(242, 242, 242));
         taDescSService.setColumns(20);
@@ -1052,21 +1000,21 @@ public class MenuView extends javax.swing.JFrame {
         taDescSService.setRows(5);
         taDescSService.setWrapStyleWord(true);
         taDescSService.setOpaque(false);
-        jScrollPane6.setViewportView(taDescSService);
+        jScrollPane4.setViewportView(taDescSService);
 
-        panelSService.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 750, 140));
+        panelSService.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 750, 200));
 
         btnPublishService.setBackground(new java.awt.Color(255, 192, 0));
         btnPublishService.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         btnPublishService.setText("PUBLISH");
         btnPublishService.setToolTipText("");
-        btnPublishService.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 192, 0)));
+        btnPublishService.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPublishService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPublishServiceActionPerformed(evt);
             }
         });
-        panelSService.add(btnPublishService, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 130, 40));
+        panelSService.add(btnPublishService, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 480, 130, 40));
 
         tabpService.addTab("Sell Service", panelSService);
 
@@ -1075,16 +1023,19 @@ public class MenuView extends javax.swing.JFrame {
         ServicePanelLayout.setHorizontalGroup(
             ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ServicePanelLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
                 .addGroup(ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
                     .addGroup(ServicePanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel34))))
-            .addGroup(ServicePanelLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(tabpService)
+                        .addGap(55, 55, 55)
+                        .addGroup(ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addGroup(ServicePanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel34))))
+                    .addGroup(ServicePanelLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(tabpService, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         ServicePanelLayout.setVerticalGroup(
             ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1097,8 +1048,8 @@ public class MenuView extends javax.swing.JFrame {
                         .addComponent(jLabel34)))
                 .addGap(1, 1, 1)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tabpService))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tabpService, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE))
         );
 
         PanelMain.add(ServicePanel, "card4");
@@ -1279,7 +1230,7 @@ public class MenuView extends javax.swing.JFrame {
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(btnBuyProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -1398,7 +1349,7 @@ public class MenuView extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(tabpProduct))
+                .addComponent(tabpProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE))
         );
 
         PanelMain.add(ProductPanel, "card3");
@@ -1563,7 +1514,7 @@ public class MenuView extends javax.swing.JFrame {
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(btnJoin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -1659,7 +1610,7 @@ public class MenuView extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(tabpCommunity))
+                .addComponent(tabpCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE))
         );
 
         PanelMain.add(CommunityPanel, "card2");
@@ -1676,7 +1627,7 @@ public class MenuView extends javax.swing.JFrame {
         PanelBodyLayout.setVerticalGroup(
             PanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(PanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1690,7 +1641,7 @@ public class MenuView extends javax.swing.JFrame {
             .addComponent(PanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(1105, 820));
+        setSize(new java.awt.Dimension(1105, 893));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1744,46 +1695,6 @@ public class MenuView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCommunityMouseExited
 
-    private void tfCategoryServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCategoryServiceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfCategoryServiceActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
-    private void tfDeadlineServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDeadlineServiceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfDeadlineServiceActionPerformed
-
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
-
-    private void btnBuyServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyServiceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuyServiceActionPerformed
-
-    private void tfNameServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNameServiceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfNameServiceActionPerformed
-
-    private void tfTitleSServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTitleSServiceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfTitleSServiceActionPerformed
-
-    private void tfPriceServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPriceServiceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPriceServiceActionPerformed
-
-    private void tfDeadlineSServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDeadlineSServiceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfDeadlineSServiceActionPerformed
-
-    private void btnPublishServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPublishServiceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPublishServiceActionPerformed
-
     private void tfNameProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNameProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNameProductActionPerformed
@@ -1823,10 +1734,6 @@ public class MenuView extends javax.swing.JFrame {
     private void tfTitleCCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTitleCCommunityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfTitleCCommunityActionPerformed
-
-    private void tfPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPriceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPriceActionPerformed
 
     private void btnPublishProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPublishProjectActionPerformed
         // TODO add your handling code here:
@@ -1872,6 +1779,46 @@ public class MenuView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnApplyProjectActionPerformed
 
+    private void tfCategoryServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCategoryServiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCategoryServiceActionPerformed
+
+    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField19ActionPerformed
+
+    private void tfDeadlineServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDeadlineServiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDeadlineServiceActionPerformed
+
+    private void btnSearchServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchServiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchServiceActionPerformed
+
+    private void tfNameServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNameServiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNameServiceActionPerformed
+
+    private void btnApplyServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApplyServiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnApplyServiceActionPerformed
+
+    private void tfTitleSServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTitleSServiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTitleSServiceActionPerformed
+
+    private void tfBudgetSServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBudgetSServiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfBudgetSServiceActionPerformed
+
+    private void tfDeadlineSServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDeadlineSServiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDeadlineSServiceActionPerformed
+
+    private void btnPublishServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPublishServiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPublishServiceActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1887,8 +1834,8 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JPanel ProjectPanel;
     private javax.swing.JPanel ServicePanel;
     private javax.swing.JButton btnApplyProject;
+    private javax.swing.JButton btnApplyService;
     private javax.swing.JButton btnBuyProduct;
-    private javax.swing.JButton btnBuyService;
     private javax.swing.JPanel btnCommunity;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnJoin;
@@ -1898,6 +1845,7 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton btnPublishProject;
     private javax.swing.JButton btnPublishService;
     private javax.swing.JButton btnSearchProject;
+    private javax.swing.JButton btnSearchService;
     private javax.swing.JPanel btnService;
     private javax.swing.JComboBox<String> cbCreateProject;
     private javax.swing.JComboBox<String> cbSearchCommunity;
@@ -1919,14 +1867,10 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -1950,22 +1894,25 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
     private javax.swing.JPanel panelBCommunity;
     private javax.swing.JPanel panelBProduct;
     private javax.swing.JPanel panelBProject;
@@ -1976,8 +1923,8 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JPanel panelSService;
     private javax.swing.JScrollPane scrollpDescProject;
     private javax.swing.JScrollPane scrollpDescService;
-    private javax.swing.JScrollPane scrolltabService;
     private javax.swing.JScrollPane scrolltabService1;
+    private javax.swing.JScrollPane scrolltabService2;
     private javax.swing.JTextArea taDescCCommunity;
     private javax.swing.JTextArea taDescCProject;
     private javax.swing.JTextArea taDescCommunity;
@@ -1988,14 +1935,16 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JTextArea taDescService;
     private javax.swing.JTable tabBCommunity;
     private javax.swing.JTable tabBProduct;
-    private javax.swing.JTable tabBService;
     private javax.swing.JTabbedPane tabpCommunity;
     private javax.swing.JTabbedPane tabpProduct;
     private javax.swing.JTabbedPane tabpProject;
     private javax.swing.JTabbedPane tabpService;
     private javax.swing.JTable tbBProject;
+    private javax.swing.JTable tbBService;
     private javax.swing.JTextField tfBudProject;
+    private javax.swing.JTextField tfBudService;
     private javax.swing.JTextField tfBudgetCProject;
+    private javax.swing.JTextField tfBudgetSService;
     private javax.swing.JTextField tfCategoryCommunity;
     private javax.swing.JTextField tfCategoryProduct;
     private javax.swing.JTextField tfCategoryProject;
@@ -2009,10 +1958,8 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JTextField tfNameProduct;
     private javax.swing.JTextField tfNameProject;
     private javax.swing.JTextField tfNameService;
-    private javax.swing.JTextField tfPrice;
     private javax.swing.JTextField tfPriceProduct;
     private javax.swing.JTextField tfPriceSProduct;
-    private javax.swing.JTextField tfPriceService;
     private javax.swing.JTextField tfTitleCCommunity;
     private javax.swing.JTextField tfTitleCProject;
     private javax.swing.JTextField tfTitleCommunity;
@@ -2036,7 +1983,8 @@ public class MenuView extends javax.swing.JFrame {
     
     //This is setter getter from Project Menu
     
-    //Browse Project
+    
+    //**********************--------------- Browse Project ---------------**********************
 
     public JButton getBtnSearchProject() {
         return btnSearchProject;
@@ -2093,7 +2041,6 @@ public class MenuView extends javax.swing.JFrame {
         return tbBProject.getSelectedRow();
     }
 
-    
     public void setTbBProject(DefaultTableModel x) {
         tbBProject.setModel(x);
     }
@@ -2112,10 +2059,62 @@ public class MenuView extends javax.swing.JFrame {
         setTfDateProject("yyyy-MM-dd");
         setTfDeadlineProject(0);
     }
+    
+    //**********************--------------- Create Project ---------------**********************
+
+    public void setTfTitleCProject(String x) {
+        tfTitleCProject.setText(x);
+    }
+
+    public void setTfBudgetCProject(String x) {
+        tfBudgetCProject.setText(x);
+    }
+
+    public void setTfDeadlineCProject(String x) {
+        tfDeadlineCProject.setText(x);
+    }
+
+    public void setTaDescCProject(String x) {
+        taDescCProject.setText(x);
+    }
+
+    public String getCbCreateProject() {
+        return cbCreateProject.getSelectedItem().toString();
+    }
+
+    public String getTaDescCProject() {
+        return taDescCProject.getText();
+    }
+
+    public String getTfBudgetCProject() {
+        return tfBudgetCProject.getText();
+    }
+
+    public String getTfDeadlineCProject() {
+        return tfDeadlineCProject.getText();
+    }
+
+    public String getTfTitleCProject() {
+        return tfTitleCProject.getText();
+    }
+
+    public JButton getBtnPublishProject() {
+        return btnPublishProject;
+    }
+    
+    public void resetCreateProject(){
+        cbCreateProject.setSelectedIndex(0);
+        setTfTitleCProject("");
+        setTfBudgetCProject("");
+        setTfDeadlineCProject("");
+        setTaDescCProject("");
+    }
+    
         
     public void addActionListener(ActionListener x){
         btnSearchProject.addActionListener(x);
         btnApplyProject.addActionListener(x);
+        btnPublishProject.addActionListener(x);
     }
     
     public void addMouseAdapter(MouseAdapter x){
@@ -2176,22 +2175,6 @@ public class MenuView extends javax.swing.JFrame {
 
     public JPanel getServicePanel() {
         return ServicePanel;
-    }
-
-    public JPanel getPanelBProject() {
-        return panelBProject;
-    }
-
-    public void setPanelBProject(JPanel panelBProject) {
-        this.panelBProject = panelBProject;
-    }
-
-    public JPanel getPanelCProject() {
-        return panelCProject;
-    }
-
-    public void setPanelCProject(JPanel panelCProject) {
-        this.panelCProject = panelCProject;
     }
     
     public void showMessage(String message, String title, int type){

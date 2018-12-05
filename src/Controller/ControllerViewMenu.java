@@ -9,7 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,6 +29,7 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         view.setVisible(true);
         db.loadUser();
         view.resetBrowseProject();
+        view.resetCreateProject();
         loadTableProject();
     }
 
@@ -63,6 +66,30 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         }
     }
     
+    public String getLastIdPrj(){
+        String LastPrj = db.getLastIdProject();
+        System.out.println(LastPrj);
+        String s;
+        if (LastPrj == null){
+            s = "0";
+        } else {
+            char[] c = LastPrj.toCharArray();
+            int i = 0;
+            while (i < c.length && c[i] != 'J'){
+                i++;
+            }
+            char[] x = new char[(c.length-1)-i];
+            for (int k = 0; k < x.length; k++) {
+                for (int j = i; j < c.length; j++) {
+                    x[k] = c[j];
+                }
+            }
+            s = String.valueOf(x);
+        }
+        
+        return s;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
@@ -72,6 +99,9 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         if (source.equals(view.getBtnSearchProject())){
             btnSearchProjectActionPerformed();
             view.resetSearchProject();
+        }
+        if (source.equals(view.getBtnPublishProject())){
+            btnPublishProjectActionPerformed();
         }
     }
     
@@ -93,6 +123,30 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
                 }
             }
             view.setTbBProject(model);
+        }
+    }
+    
+    public void btnPublishProjectActionPerformed(){
+        int lastNum = Integer.parseInt(getLastIdPrj());
+        String idPrj = "PRJ" + Integer.toString(lastNum+1);
+        Date tgl = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String tanggal = sdf.format(tgl);
+        int deadline = Integer.parseInt(view.getTfDeadlineCProject());
+        String title = view.getTfTitleCProject();
+        int price = Integer.parseInt(view.getTfBudgetCProject());
+        String kategori = view.getCbCreateProject();
+        String deskripsi = view.getTaDescCProject();
+        if (idPrj.isEmpty() || tanggal.isEmpty() || deadline == 0 || title.isEmpty() || price == 0 || kategori.isEmpty() || deskripsi.isEmpty()){
+            view.showMessage("Data Belum terisi semua", "Error", 0);
+        } else {
+            if (db.cekTitleProject(title)){
+                view.showMessage("Title yang anda masukkan sudah ada", "Failed", 0);
+            } else {
+                db.addProject(new Project(idPrj,tanggal,deadline,title,price,kategori,deskripsi));
+                view.showMessage("Register berhasil dilakukan", "Success", 1);
+                view.resetCreateProject();
+            }
         }
     }
     

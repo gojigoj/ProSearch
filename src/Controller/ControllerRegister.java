@@ -45,7 +45,7 @@ public class ControllerRegister extends MouseAdapter implements ActionListener{
             view.showMessage("Data Belum terisi semua", "Error", 0);
         } else {
             if (db.cekUsername(username)){
-                view.showMessage("Username yang anda masukkan sudah ada", "Failed", 1);
+                view.showMessage("Username yang anda masukkan sudah ada", "Failed", 0);
             } else {
                 db.addUser(new User(name,username,password,birthday,address,noHp,email,lastEduc,skill));
                 view.reset();

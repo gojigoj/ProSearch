@@ -226,16 +226,46 @@ public class Database {
         return cek;
     }
     
-    public boolean cekPassword(String password){
+    public boolean cekPassword(String pass){
         boolean cek = false;
         for (User usr : listUser){
-            if (usr.getPassword().equals(password)){
+            if (usr.getPassword().equals(pass)){
                 cek = true;
                 break;
             }
         }
         
         return cek;
+    }
+    
+    public boolean cekTitleProject(String title){
+        boolean cek = false;
+        for (User usr : listUser){
+            for (int j = 0; j < usr.getNumJual(); j++) {
+                if (usr.getListJual(j).getTitle().equals(title)){
+                    cek = true;
+                    break;
+                }
+            }
+        }
+        
+        return cek;
+    }
+    
+    public String getLastIdProject(){
+        connect();
+        String lastIdPrj = null;
+        try {
+            String query = "select max(kode_product) from project";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                lastIdPrj = rs.getString("max(kode_product)");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lastIdPrj;
     }
     
     public String getLastIdTrx(){
@@ -294,6 +324,33 @@ public class Database {
         query += "'" + kodeproduct + "'";
         query += ")";
         if (manipulate(query)) listTrx.add(trx);
+        disconnect();
+    }
+    
+    
+    public void addProject(Project p){
+        connect();
+        String query1 = "INSERT INTO product VALUES (";
+        query1 += "'" + p.getProjectId() + "',";
+        query1 += "'" + getUserLogin().getUsername() + "',";
+        query1 += "'" + p.getTitle() + "',";
+        query1 += "'" + p.getKategori() + "',";
+        query1 += "'" + p.getPrice() + "',";
+        query1 += "'" + p.getDeskripsi() + "'";
+        query1 += ")";
+        
+        String query2 = "INSERT INTO project VALUES (";
+        query2 += "'" + p.getProjectId() + "',";
+        query2 += "CURRENT_TIME(),";
+        query2 += "'" + p.getDeadline() + "'";
+        query2 += ")";
+        if (manipulate(query1) && manipulate(query2)){
+            for (User u : listUser){
+                if (u.getUsername().equals(userLogin.getUsername())){
+                    u.AddJual(p);
+                }
+            }
+        };
         disconnect();
     }
     
