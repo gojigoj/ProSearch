@@ -2,19 +2,19 @@
 package Model;
 
 
-public class Payment {
+public class Transaksi {
     private String transaksiId;
     private int numPembeli;
     private int numPenjual;
     private int numProduct;
-    private User[] listPembeli;
-    private User[] listPenjual;
-    private Product[] listProduct;
+    private User Pembeli;
+    private User Penjual;
+    private Product Product;
     private int nominal;
     private String rekening;
     private String Bank;
 
-    public Payment(String transaksiId, int nominal, String rekening, String Bank) {
+    public Transaksi(String transaksiId, int nominal, String rekening, String Bank) {
         this.transaksiId = transaksiId;
         this.nominal = nominal;
         this.rekening = rekening;
@@ -22,18 +22,15 @@ public class Payment {
     }
 
     public void addPembeli(User pembeli){
-        listPembeli[numPembeli] = pembeli;
-        numPembeli++;
+        this.Pembeli = pembeli;
     }
     
     public void addPenjual(User penjual){
-        listPenjual[numPenjual] = penjual;
-        numPenjual++;
+        this.Penjual = penjual;
     }
     
     public void addProduct(Product product){
-        listProduct[numProduct] = product;
-        numProduct++;
+        this.Product = product;
     }
 
     public void setTransaksiId(String transaksiId) {
@@ -56,28 +53,16 @@ public class Payment {
         return transaksiId;
     }
 
-    public int getNumPembeli() {
-        return numPembeli;
+    public User getPembeli() {
+        return Pembeli;
     }
 
-    public int getNumPenjual() {
-        return numPenjual;
+    public User getPenjual() {
+        return Penjual;
     }
 
-    public int getNumProduct() {
-        return numProduct;
-    }
-
-    public User getListPembeli(int i) {
-        return listPembeli[i];
-    }
-
-    public User getListPenjual(int i) {
-        return listPenjual[i];
-    }
-
-    public Product getListProduct(int i) {
-        return listProduct[i];
+    public Product getProduct() {
+        return Product;
     }
 
     public int getNominal() {

@@ -19,10 +19,14 @@ public class Database {
     private Connection conn;
     private Statement stmt = null;
     private ResultSet rs = null;
+    private static User userLogin;
+    private static User userJual;
+    private static Product productBuy;
     private ArrayList<User> listUser = new ArrayList();
-    private ArrayList<Project> listProject = new ArrayList();
-    private ArrayList<Service> listService = new ArrayList();
-    private ArrayList<ProductJadi> listProduct = new ArrayList();
+    private ArrayList<Transaksi> listTrx = new ArrayList();
+//    private ArrayList<Project> listProject = new ArrayList();
+//    private ArrayList<Service> listService = new ArrayList();
+//    private ArrayList<ProductJadi> listProduct = new ArrayList();
     
     public void connect(){
         try {
@@ -66,11 +70,6 @@ public class Database {
                 listUser.add(new User(rs.getString("name"), rs.getString("username"), rs.getString("password"), rs.getString("birthday"),rs.getString("address"),rs.getString("nohp"),rs.getString("email"),rs.getString("lasteduc"),rs.getString("skill")));
             }
             for (User o : listUser){
-//                String querypro = "select * from product where username = " + "'" + o.getUsername() + "'";
-//                rs = stmt.executeQuery(querypro);
-//                while(rs.next()){
-//                    o.AddJual(new Product(rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
-//                }
                 String queryprj = "select * from product join project using (kode_product) where kode_product like 'PRJ%' and username = " + "'" + o.getUsername() + "'";
                 rs = stmt.executeQuery(queryprj);
                 while (rs.next()){
@@ -93,28 +92,42 @@ public class Database {
         disconnect();
     }
     
-    public void loadProject() {
+    public void loadTransaction(){
         connect();
+        loadUser();
         try {
-            String query = "select * from product join project using (kode_product) where kode_product like 'PRJ%'";
+            String query = "SELECT * FROM transaksi";
             rs = stmt.executeQuery(query);
+            int i = 0;
             while (rs.next()){
-                listProject.add(new Project(rs.getString("kode_product"), rs.getString("tanggal"), rs.getInt("deadline"), rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
-            }
-            System.out.println("Test");
-        } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        disconnect();
-    }
-
-    public void loadService() {
-        connect();
-        try {
-            String query = "select * from product join service using (kode_product) where kode_product like 'SRV%'";
-            rs = stmt.executeQuery(query);
-            while (rs.next()){
-                listService.add(new Service(rs.getString("kode_product"), rs.getInt("deadline"), rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
+                listTrx.add(new Transaksi(rs.getString("idtransaksi"),rs.getInt("nominal"),rs.getString("rekening"),rs.getString("bank")));
+                for (User o : listUser){
+                    if (o.getUsername().equals(rs.getString("username"))){
+                        listTrx.get(i).addPembeli(o);
+                    }
+                    for (int j = 0; j < o.getNumJual(); j++) {
+                        if (o.getListJual(j) instanceof Project){
+                            Project p = (Project) o.getListJual(j);
+                            if (p.getProjectId().equals(rs.getString("kode_product"))){
+                                listTrx.get(i).addPenjual(o);
+                                listTrx.get(i).addProduct(p);
+                            }
+                        } else if (o.getListJual(j) instanceof Service){
+                            Service p = (Service) o.getListJual(j);
+                            if (p.getServiceId().equals(rs.getString("kode_product"))){
+                                listTrx.get(i).addPenjual(o);
+                                listTrx.get(i).addProduct(p);
+                            }
+                        } else if (o.getListJual(j) instanceof ProductJadi){
+                            ProductJadi p = (ProductJadi) o.getListJual(j);
+                            if (p.getProductId().equals(rs.getString("kode_product"))){
+                                listTrx.get(i).addPenjual(o);
+                                listTrx.get(i).addProduct(p);
+                            }
+                        }
+                    }
+                }
+                i++;
             }
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
@@ -122,35 +135,64 @@ public class Database {
         disconnect();
     }
     
-    public void loadProduct() {
-        connect();
-        try {
-            String query = "select * from product join productjadi using (kode_product) where kode_product like 'PRD%'";
-            rs = stmt.executeQuery(query);
-            while (rs.next()){
-                listProduct.add(new ProductJadi(rs.getString("kode_product"), rs.getString("title"), rs.getInt("price"), rs.getString("kategori"), rs.getString("deskripsi")));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        disconnect();
-    }
+//    public void loadProject() {
+//        connect();
+//        try {
+//            String query = "select * from product join project using (kode_product) where kode_product like 'PRJ%'";
+//            rs = stmt.executeQuery(query);
+//            while (rs.next()){
+//                listProject.add(new Project(rs.getString("kode_product"), rs.getString("tanggal"), rs.getInt("deadline"), rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
+//            }
+//            System.out.println("Test");
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        disconnect();
+//    }
+//
+//    public void loadService() {
+//        connect();
+//        try {
+//            String query = "select * from product join service using (kode_product) where kode_product like 'SRV%'";
+//            rs = stmt.executeQuery(query);
+//            while (rs.next()){
+//                listService.add(new Service(rs.getString("kode_product"), rs.getInt("deadline"), rs.getString("title"),rs.getInt("price"),rs.getString("kategori"),rs.getString("deskripsi")));
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        disconnect();
+//    }
+//    
+//    public void loadProduct() {
+//        connect();
+//        try {
+//            String query = "select * from product join productjadi using (kode_product) where kode_product like 'PRD%'";
+//            rs = stmt.executeQuery(query);
+//            while (rs.next()){
+//                listProduct.add(new ProductJadi(rs.getString("kode_product"), rs.getString("title"), rs.getInt("price"), rs.getString("kategori"), rs.getString("deskripsi")));
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        disconnect();
+//    }
     
     public ArrayList<User> getListUser() {
         return listUser;
     }
-    
-    public ArrayList<Project> getListProject() {
-        return listProject;
-    }
-    
-    public ArrayList<Service> getListService() {
-        return listService;
-    }
-    
-    public ArrayList<ProductJadi> getListProductJadi() {
-        return listProduct;
-    }
+//    
+//    public ArrayList<Project> getListProject() {
+//        return listProject;
+//    }
+//    
+//    public ArrayList<Service> getListService() {
+//        return listService;
+//    }
+//    
+//    public ArrayList<ProductJadi> getListProductJadi() {
+//        return listProduct;
+//    }
 
     public boolean cekUsername(String username){
         boolean cek = false;
@@ -176,6 +218,22 @@ public class Database {
         return cek;
     }
     
+    public String getLastIdTrx(){
+        connect();
+        String lastTrx = null;
+        try {
+            String query = "select max(idtransaksi) from transaksi";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                lastTrx = rs.getString("max(idtransaksi)");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lastTrx;
+    }
+    
     public void addUser(User x) {
         connect();
         String query = "INSERT INTO user VALUES (";
@@ -192,6 +250,56 @@ public class Database {
         if (manipulate(query)) listUser.add(x);
         disconnect();
     }
+    
+    
+    public void addTrx(Transaksi trx){
+        connect();
+        String kodeproduct = null;
+        if (trx.getProduct() instanceof Project){
+            Project p = (Project) trx.getProduct();
+            kodeproduct = p.getProjectId();
+        } else if (trx.getProduct() instanceof Service){
+            Service z = (Service) trx.getProduct();
+            kodeproduct = z.getServiceId();
+        } else if (trx.getProduct() instanceof ProductJadi){
+            ProductJadi j = (ProductJadi) trx.getProduct();
+            kodeproduct = j.getProductId();
+        }
+        String query = "INSERT INTO transaksi VALUES (";
+        query += "'" + trx.getTransaksiId() + "',";
+        query += "'" + trx.getRekening() + "',";
+        query += "'" + trx.getNominal() + "',";
+        query += "'" + trx.getBank() + "',";
+        query += "'" + trx.getPembeli().getUsername() + "',";
+        query += "'" + kodeproduct + "'";
+        query += ")";
+    }
+    
+    public void setUserLogin (User user){
+        this.userLogin = user;
+    }
+    
+    public void setUserJual (User user){
+        this.userJual = user;
+    }
+    
+    public void setProductBuy (Product product){
+        this.productBuy = product;
+    }
+
+    public User getUserLogin() {
+        return userLogin;
+    }
+
+    public User getUserJual() {
+        return userJual;
+    }
+
+    public Product getProductBuy() {
+        return productBuy;
+    }
+    
+    
     
     
     

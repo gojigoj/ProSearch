@@ -3,6 +3,7 @@ package Controller;
 
 import Model.*;
 import View.*;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,12 +44,30 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         view.setTbBProject(model);
     }
     
+    public void loadTableProjectBuy(){
+        User user = db.getUserJual();
+        int i = view.getSelectedProject();
+        if (i == -1){
+            view.showMessage("Anda belum memilih product", "failed", 0);
+        } else {
+            String title = view.getTbBProject().getModel().getValueAt(i, 0).toString();
+                for (int j = 0; j < user.getNumJual(); j++) {
+                    if (user.getListJual(j) instanceof Project){
+                        Project p = (Project) user.getListJual(j);
+                        if (p.getTitle().equals(title)){
+                            db.setProductBuy(p);
+                            new ControllerPayment("Salary");
+                        }
+                    }
+                }
+        }
+    }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnApplyProject())){
-            new ControllerPayment();
+            loadTableProjectBuy();
         }
         if (source.equals(view.getBtnSearchProject())){
             btnSearchProjectActionPerformed();
@@ -79,7 +98,17 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
     
     public void mousePressed(MouseEvent me){
         Object source = me.getSource();
-        if (source.equals(view.getTbBProject())){
+        if (source.equals(view.getBtnProject())){
+            getBtnProjectMousePressed();
+            loadTableProject();
+            view.resetBrowseProject();
+        } else if (source.equals(view.getBtnService())){
+            getBtnServiceMousePressed();
+        } else if (source.equals(view.getBtnProduct())){
+            getBtnProductMousePressed();
+        } else if (source.equals(view.getBtnCommunity())){
+            getBtnCommunityMousePressed();
+        } else if (source.equals(view.getTbBProject())){
             ArrayList<User> user = db.getListUser();
             int i = view.getSelectedProject();
             String title = view.getTbBProject().getModel().getValueAt(i, 0).toString();
@@ -95,6 +124,7 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
                             view.setTfDateProject(p.getTanggal());
                             view.setTfDeadlineProject(p.getDeadline());
                             view.setTfNameProject(o.getUsername());
+                            db.setUserJual(o);
                         }
                     }
                 }
@@ -102,157 +132,143 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         }
     }
     
-//    public void mousePressed(MouseEvent me) {
-//        Object source = me.getSource();
-//        if (source.equals(view.getBtnProject())){
-//            getBtnProjectMousePressed();
-//            new ControllerBrowseProject();
-//        } else if (source.equals(view.getBtnService())){
-//            getBtnServiceMousePressed();
-//        } else if (source.equals(view.getBtnProduct())){
-//            getBtnProductMousePressed();
-//        } else if (source.equals(view.getBtnCommunity())){
-//            getBtnCommunityMousePressed();
-//        }
-//    }
-//    
-//    public void mouseEntered(MouseEvent me) {
-//        Object source = me.getSource();
-//        if (source.equals(view.getBtnProject())){
-//            onHover(view.getBtnProject());
-//            onLeaveHover(view.getBtnCommunity());
-//            onLeaveHover(view.getBtnService());
-//            onLeaveHover(view.getBtnProduct());
-//        } else if (source.equals(view.getBtnService())){
-//            onHover(view.getBtnService());
-//            onLeaveHover(view.getBtnCommunity());
-//            onLeaveHover(view.getBtnProject());
-//            onLeaveHover(view.getBtnProduct());
-//        } else if (source.equals(view.getBtnProduct())){
-//            onHover(view.getBtnProduct());
-//            onLeaveHover(view.getBtnCommunity());
-//            onLeaveHover(view.getBtnProject());
-//            onLeaveHover(view.getBtnService());
-//        } else if (source.equals(view.getBtnCommunity())){
-//            onHover(view.getBtnCommunity());
-//            onLeaveHover(view.getBtnService());
-//            onLeaveHover(view.getBtnProject());
-//            onLeaveHover(view.getBtnProduct());
-//        }
-//    }
-//    
-//    public void mouseExited(MouseEvent me) {
-//        Object source = me.getSource();
-//        if (source.equals(view.getBtnProject())){
-//            onLeaveHover(view.getBtnProject());
-//        } else if (source.equals(view.getBtnService())){
-//            onLeaveHover(view.getBtnService());
-//        } else if (source.equals(view.getBtnProduct())){
-//            onLeaveHover(view.getBtnProduct());
-//        } else if (source.equals(view.getBtnCommunity())){
-//            onLeaveHover(view.getBtnCommunity());
-//        }
-//    }
-//    
-//    public void onHover(JPanel panel){
-//        panel.setBackground(new Color(204,204,204));
-//    }
-//    
-//    public void onLeaveHover(JPanel panel){
-//        panel.setBackground(new Color(38,38,38));
-//    }
-//    
-//    public void onClick(JPanel panel){
-//        panel.setBackground(new Color(204,204,204));
-//    }
-//    
-//    public void onleaveClick(JPanel panel){
-//        panel.setBackground(new Color(38,38,38));
-//    }
-//    
-//    public void getBtnProjectMousePressed(){
-//        view.getPanelMain().removeAll();
-//        view.getPanelMain().repaint();
-//        view.getPanelMain().revalidate();
-//
-//        onClick(view.getBtnProject());
-//        onleaveClick(view.getBtnService());
-//        onleaveClick(view.getBtnProduct());
-//        onleaveClick(view.getBtnCommunity());
-//
-//        view.getIndicatorProject().setVisible(true);
-//        view.getIndicatorService().setVisible(false);
-//        view.getIndicatorProduct().setVisible(false);
-//        view.getIndicatorCommunity().setVisible(false);
-//
-//        // add panel
-//        view.getPanelMain().add(view.getProjectPanel());
-//        view.getPanelMain().repaint();
-//        view.getPanelMain().revalidate();
-//    }
-//    
-//    public void getBtnServiceMousePressed(){
-//        view.getPanelMain().removeAll();
-//        view.getPanelMain().repaint();
-//        view.getPanelMain().revalidate();
-//
-//        onClick(view.getBtnService());
-//        onleaveClick(view.getBtnCommunity());
-//        onleaveClick(view.getBtnProduct());
-//        onleaveClick(view.getBtnProject());
-//
-//        view.getIndicatorProject().setVisible(false);
-//        view.getIndicatorService().setVisible(true);
-//        view.getIndicatorProduct().setVisible(false);
-//        view.getIndicatorCommunity().setVisible(false);
-//
-//        // add panel
-//        view.getPanelMain().add(view.getServicePanel());
-//        view.getPanelMain().repaint();
-//        view.getPanelMain().revalidate();
-//    }
-//    
-//    public void getBtnProductMousePressed(){
-//        view.getPanelMain().removeAll();
-//        view.getPanelMain().repaint();
-//        view.getPanelMain().revalidate();
-//
-//        onClick(view.getBtnProduct());
-//        onleaveClick(view.getBtnService());
-//        onleaveClick(view.getBtnCommunity());
-//        onleaveClick(view.getBtnProject());
-//
-//        view.getIndicatorProject().setVisible(false);
-//        view.getIndicatorService().setVisible(false);
-//        view.getIndicatorProduct().setVisible(true);
-//        view.getIndicatorCommunity().setVisible(false);
-//
-//        // add panel
-//        view.getPanelMain().add(view.getProductPanel());
-//        view.getPanelMain().repaint();
-//        view.getPanelMain().revalidate();
-//    }
-//    
-//    public void getBtnCommunityMousePressed(){
-//        view.getPanelMain().removeAll();
-//        view.getPanelMain().repaint();
-//        view.getPanelMain().revalidate();
-//
-//        onClick(view.getBtnCommunity());
-//        onleaveClick(view.getBtnService());
-//        onleaveClick(view.getBtnProduct());
-//        onleaveClick(view.getBtnProject());
-//
-//        view.getIndicatorProject().setVisible(false);
-//        view.getIndicatorService().setVisible(false);
-//        view.getIndicatorProduct().setVisible(false);
-//        view.getIndicatorCommunity().setVisible(true);
-//
-//        // add panel
-//        view.getPanelMain().add(view.getCommunityPanel());
-//        view.getPanelMain().repaint();
-//        view.getPanelMain().revalidate();
-//    }
+    public void mouseEntered(MouseEvent me) {
+        Object source = me.getSource();
+        if (source.equals(view.getBtnProject())){
+            onHover(view.getBtnProject());
+            onLeaveHover(view.getBtnCommunity());
+            onLeaveHover(view.getBtnService());
+            onLeaveHover(view.getBtnProduct());
+        } else if (source.equals(view.getBtnService())){
+            onHover(view.getBtnService());
+            onLeaveHover(view.getBtnCommunity());
+            onLeaveHover(view.getBtnProject());
+            onLeaveHover(view.getBtnProduct());
+        } else if (source.equals(view.getBtnProduct())){
+            onHover(view.getBtnProduct());
+            onLeaveHover(view.getBtnCommunity());
+            onLeaveHover(view.getBtnProject());
+            onLeaveHover(view.getBtnService());
+        } else if (source.equals(view.getBtnCommunity())){
+            onHover(view.getBtnCommunity());
+            onLeaveHover(view.getBtnService());
+            onLeaveHover(view.getBtnProject());
+            onLeaveHover(view.getBtnProduct());
+        }
+    }
+    
+    public void mouseExited(MouseEvent me) {
+        Object source = me.getSource();
+        if (source.equals(view.getBtnProject())){
+            onLeaveHover(view.getBtnProject());
+        } else if (source.equals(view.getBtnService())){
+            onLeaveHover(view.getBtnService());
+        } else if (source.equals(view.getBtnProduct())){
+            onLeaveHover(view.getBtnProduct());
+        } else if (source.equals(view.getBtnCommunity())){
+            onLeaveHover(view.getBtnCommunity());
+        }
+    }
+    
+    public void onHover(JPanel panel){
+        panel.setBackground(new Color(204,204,204));
+    }
+    
+    public void onLeaveHover(JPanel panel){
+        panel.setBackground(new Color(38,38,38));
+    }
+    
+    public void onClick(JPanel panel){
+        panel.setBackground(new Color(204,204,204));
+    }
+    
+    public void onleaveClick(JPanel panel){
+        panel.setBackground(new Color(38,38,38));
+    }
+    
+    public void getBtnProjectMousePressed(){
+        view.getPanelMain().removeAll();
+        view.getPanelMain().repaint();
+        view.getPanelMain().revalidate();
+
+        onClick(view.getBtnProject());
+        onleaveClick(view.getBtnService());
+        onleaveClick(view.getBtnProduct());
+        onleaveClick(view.getBtnCommunity());
+
+        view.getIndicatorProject().setVisible(true);
+        view.getIndicatorService().setVisible(false);
+        view.getIndicatorProduct().setVisible(false);
+        view.getIndicatorCommunity().setVisible(false);
+
+        // add panel
+        view.getPanelMain().add(view.getProjectPanel());
+        view.getPanelMain().repaint();
+        view.getPanelMain().revalidate();
+    }
+    
+    public void getBtnServiceMousePressed(){
+        view.getPanelMain().removeAll();
+        view.getPanelMain().repaint();
+        view.getPanelMain().revalidate();
+
+        onClick(view.getBtnService());
+        onleaveClick(view.getBtnCommunity());
+        onleaveClick(view.getBtnProduct());
+        onleaveClick(view.getBtnProject());
+
+        view.getIndicatorProject().setVisible(false);
+        view.getIndicatorService().setVisible(true);
+        view.getIndicatorProduct().setVisible(false);
+        view.getIndicatorCommunity().setVisible(false);
+
+        // add panel
+        view.getPanelMain().add(view.getServicePanel());
+        view.getPanelMain().repaint();
+        view.getPanelMain().revalidate();
+    }
+    
+    public void getBtnProductMousePressed(){
+        view.getPanelMain().removeAll();
+        view.getPanelMain().repaint();
+        view.getPanelMain().revalidate();
+
+        onClick(view.getBtnProduct());
+        onleaveClick(view.getBtnService());
+        onleaveClick(view.getBtnCommunity());
+        onleaveClick(view.getBtnProject());
+
+        view.getIndicatorProject().setVisible(false);
+        view.getIndicatorService().setVisible(false);
+        view.getIndicatorProduct().setVisible(true);
+        view.getIndicatorCommunity().setVisible(false);
+
+        // add panel
+        view.getPanelMain().add(view.getProductPanel());
+        view.getPanelMain().repaint();
+        view.getPanelMain().revalidate();
+    }
+    
+    public void getBtnCommunityMousePressed(){
+        view.getPanelMain().removeAll();
+        view.getPanelMain().repaint();
+        view.getPanelMain().revalidate();
+
+        onClick(view.getBtnCommunity());
+        onleaveClick(view.getBtnService());
+        onleaveClick(view.getBtnProduct());
+        onleaveClick(view.getBtnProject());
+
+        view.getIndicatorProject().setVisible(false);
+        view.getIndicatorService().setVisible(false);
+        view.getIndicatorProduct().setVisible(false);
+        view.getIndicatorCommunity().setVisible(true);
+
+        // add panel
+        view.getPanelMain().add(view.getCommunityPanel());
+        view.getPanelMain().repaint();
+        view.getPanelMain().revalidate();
+    }
     
     
 }

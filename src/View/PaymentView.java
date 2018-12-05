@@ -9,6 +9,8 @@ import Controller.ControllerPayment;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
@@ -44,7 +46,7 @@ public class PaymentView extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         tfTitleProduct = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        lblPrice = new javax.swing.JLabel();
         tfPrice = new javax.swing.JTextField();
         cbBank = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
@@ -57,10 +59,11 @@ public class PaymentView extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(38, 38, 38));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tfTransId.setEditable(false);
         tfTransId.setBackground(new java.awt.Color(38, 38, 38));
         tfTransId.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         tfTransId.setForeground(new java.awt.Color(242, 242, 242));
-        tfTransId.setText("TR001");
+        tfTransId.setText("TRXxx");
         tfTransId.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
         tfTransId.setCaretColor(new java.awt.Color(242, 242, 242));
         tfTransId.setOpaque(false);
@@ -109,10 +112,11 @@ public class PaymentView extends javax.swing.JFrame {
         jLabel11.setText("TITLE");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, 20));
 
+        tfTitleProduct.setEditable(false);
         tfTitleProduct.setBackground(new java.awt.Color(38, 38, 38));
         tfTitleProduct.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         tfTitleProduct.setForeground(new java.awt.Color(242, 242, 242));
-        tfTitleProduct.setText("[Dicari] Penulis ");
+        tfTitleProduct.setText("title");
         tfTitleProduct.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
         tfTitleProduct.setCaretColor(new java.awt.Color(242, 242, 242));
         tfTitleProduct.setOpaque(false);
@@ -128,15 +132,16 @@ public class PaymentView extends javax.swing.JFrame {
         jLabel13.setText("BANK");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, -1, 20));
 
-        jLabel14.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel14.setText("PRICE");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, -1, 20));
+        lblPrice.setFont(new java.awt.Font("Montserrat Light", 0, 18)); // NOI18N
+        lblPrice.setForeground(new java.awt.Color(153, 153, 153));
+        lblPrice.setText("PRICE");
+        jPanel1.add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, -1, 20));
 
+        tfPrice.setEditable(false);
         tfPrice.setBackground(new java.awt.Color(38, 38, 38));
         tfPrice.setFont(new java.awt.Font("Montserrat Light", 0, 16)); // NOI18N
         tfPrice.setForeground(new java.awt.Color(242, 242, 242));
-        tfPrice.setText("500000");
+        tfPrice.setText("0");
         tfPrice.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(242, 242, 242)));
         tfPrice.setCaretColor(new java.awt.Color(242, 242, 242));
         tfPrice.setOpaque(false);
@@ -214,12 +219,12 @@ public class PaymentView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblPrice;
     private javax.swing.JTextField tfNoRek;
     private javax.swing.JTextField tfPrice;
     private javax.swing.JTextField tfTitleProduct;
@@ -227,12 +232,33 @@ public class PaymentView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
+    public JButton getBtnFinish() {
+        return btnFinish;
+    }
+
+    public String getTfNoRek() {
+        return tfNoRek.getText();
+    }
+
+    public String getTfPrice() {
+        return tfPrice.getText();
+    }
+
+    public String getTfTitleProduct() {
+        return tfTitleProduct.getText();
+    }
+
+    public String getTfTransId() {
+        return tfTransId.getText();
+    }
+    
     public String getCbBank() {
         return cbBank.getSelectedItem().toString();
     }
 
-    public void setTfPrice(String x) {
-        tfPrice.setText(x);
+    public void setTfPrice(int x) {
+        String s = Integer.toString(x);
+        tfPrice.setText(s);
     }
 
     public void setTfTitleProduct(String x) {
@@ -243,15 +269,26 @@ public class PaymentView extends javax.swing.JFrame {
         tfTransId.setText(x);
     }
 
-    public JButton getBtnFinish() {
-        return btnFinish;
+    public void setLblPrice(String x) {
+        lblPrice.setText(x);
+    }
+    
+    public void reset(){
+        cbBank.setSelectedIndex(0);
     }
     
     public void addActionListener(ActionListener x){
         btnFinish.addActionListener(x);
     }
-
     
+    public void showMessage(String message, String title, int type){
+        JOptionPane.showMessageDialog(null, message, title, type);
+    }
+    
+    public int ShowConfirmDialog(String message, String title){
+        int input = JOptionPane.showConfirmDialog(null, message, title,JOptionPane.YES_NO_CANCEL_OPTION);
+        return input;
+    }
     
     
 }

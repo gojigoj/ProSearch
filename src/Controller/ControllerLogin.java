@@ -12,6 +12,7 @@ import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.util.*;
 
 /**
  *
@@ -45,6 +46,12 @@ public class ControllerLogin extends MouseAdapter implements ActionListener{
         if (db.cekUsername(view.getTfUsernameL())) {
             if (db.cekPassword(view.getPfPasswordL())){
                 view.showMessage("Anda Berhasil Login", "Success", 1);
+                ArrayList<User> user = db.getListUser();
+                for (User o : user){
+                    if (o.getUsername().equals(view.getTfUsernameL())){
+                        db.setUserLogin(o);
+                    }
+                }
                 view.setVisible(false);
                 new ControllerViewMenu();
             } else {
