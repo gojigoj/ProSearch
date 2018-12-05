@@ -481,7 +481,7 @@ public class MenuView extends javax.swing.JFrame {
         tfBudProject.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
         tfBudProject.setForeground(new java.awt.Color(242, 242, 242));
         tfBudProject.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
-        jPanel3.add(tfBudProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 170, 30));
+        jPanel3.add(tfBudProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 160, 30));
 
         jTextField18.setEditable(false);
         jTextField18.setBackground(new java.awt.Color(38, 38, 38));
@@ -508,7 +508,7 @@ public class MenuView extends javax.swing.JFrame {
                 tfDateProjectActionPerformed(evt);
             }
         });
-        jPanel3.add(tfDateProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 100, 30));
+        jPanel3.add(tfDateProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 100, 30));
 
         tfDeadlineProject.setEditable(false);
         tfDeadlineProject.setBackground(new java.awt.Color(38, 38, 38));
@@ -535,8 +535,8 @@ public class MenuView extends javax.swing.JFrame {
 
         jLabel54.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
         jLabel54.setForeground(new java.awt.Color(242, 242, 242));
-        jLabel54.setText("Tanggal :");
-        jPanel3.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 69, 30));
+        jLabel54.setText("Date Publish :");
+        jPanel3.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 100, 30));
 
         panelBProject.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 742, 54));
 

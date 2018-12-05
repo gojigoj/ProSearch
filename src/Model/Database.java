@@ -104,6 +104,26 @@ public class Database {
                 for (User o : listUser){
                     if (o.getUsername().equals(rs.getString("username"))){
                         listTrx.get(i).addPembeli(o);
+                        for (User x : listUser){
+                            for (int j = 0; j < o.getNumJual(); j++) {
+                                if (o.getListJual(j) instanceof Project){
+                                    Project p = (Project) o.getListJual(j);
+                                    if (p.getProjectId().equals(rs.getString("kode_product"))){
+                                        o.AddJual(p);
+                                    }
+                                } else if (o.getListJual(j) instanceof Service){
+                                    Service s = (Service) o.getListJual(j);
+                                    if (s.getServiceId().equals(rs.getString("kode_product"))){
+                                        o.AddJual(s);
+                                    }
+                                } else if (o.getListJual(j) instanceof ProductJadi){
+                                    ProductJadi k = (ProductJadi) o.getListJual(j);
+                                    if (k.getProductId().equals(rs.getString("kode_product"))){
+                                        o.AddJual(k);
+                                    }
+                                }
+                            }
+                        }
                     }
                     for (int j = 0; j < o.getNumJual(); j++) {
                         if (o.getListJual(j) instanceof Project){
@@ -113,16 +133,16 @@ public class Database {
                                 listTrx.get(i).addProduct(p);
                             }
                         } else if (o.getListJual(j) instanceof Service){
-                            Service p = (Service) o.getListJual(j);
-                            if (p.getServiceId().equals(rs.getString("kode_product"))){
+                            Service s = (Service) o.getListJual(j);
+                            if (s.getServiceId().equals(rs.getString("kode_product"))){
                                 listTrx.get(i).addPenjual(o);
-                                listTrx.get(i).addProduct(p);
+                                listTrx.get(i).addProduct(s);
                             }
                         } else if (o.getListJual(j) instanceof ProductJadi){
-                            ProductJadi p = (ProductJadi) o.getListJual(j);
-                            if (p.getProductId().equals(rs.getString("kode_product"))){
+                            ProductJadi k = (ProductJadi) o.getListJual(j);
+                            if (k.getProductId().equals(rs.getString("kode_product"))){
                                 listTrx.get(i).addPenjual(o);
-                                listTrx.get(i).addProduct(p);
+                                listTrx.get(i).addProduct(k);
                             }
                         }
                     }
@@ -273,6 +293,8 @@ public class Database {
         query += "'" + trx.getPembeli().getUsername() + "',";
         query += "'" + kodeproduct + "'";
         query += ")";
+        if (manipulate(query)) listTrx.add(trx);
+        disconnect();
     }
     
     public void setUserLogin (User user){
