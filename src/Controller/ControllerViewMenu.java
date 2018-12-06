@@ -28,6 +28,8 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         view.addMouseAdapter(this);
         view.setVisible(true);
         db.loadUser();
+        db.loadCommunity();
+        db.loadJoin();
         getBtnProjectMousePressed();
         view.resetBrowseProject();
         view.resetCreateProject();
@@ -87,6 +89,7 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         ArrayList<Community> cmn = db.getListCmn();
         for (Community c : cmn) {
                     model.addRow(new Object[]{c.getTitle(), c.getKategori(), c.getTanggalBuat()});
+                    System.out.println(c.getTitle());
         }
         view.setTbBcommunity(model);
     }
@@ -506,7 +509,7 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         if (idCmn.isEmpty() || tanggal.isEmpty() || title.isEmpty() || kategori.isEmpty() || deskripsi.isEmpty()){
             view.showMessage("Data Belum terisi semua", "Error", 0);
         } else {
-            if (db.cekTitleBikin(title)){
+            if (db.cekTitleBikinForum(title)){
                 view.showMessage("Title yang anda masukkan sudah ada", "Failed", 0);
             } else if (kategori == "All"){
                 view.showMessage("Anda belum memilih kategori", "Failed", 0);
@@ -534,6 +537,8 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
             view.resetBrowseProduct();
         } else if (source.equals(view.getBtnCommunity())){
             getBtnCommunityMousePressed();
+            loadTableCommunity();
+            view.resetBrowseCommunity();
         } else if (source.equals(view.getTbBProject())){
             ArrayList<User> user = db.getListUser();
             int i = view.getSelectedProject();
@@ -592,6 +597,22 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
                             db.setUserJual(o);
                         }
                     }
+                }
+            }
+        } else if (source.equals(view.getTbBcommunity())){
+            ArrayList<Community> cmn = db.getListCmn();
+            int i = view.getSelectedCommunity();
+            String title = view.getTbBcommunity().getModel().getValueAt(i, 0).toString();
+            for (Community c : cmn){    
+                if (c.getTitle().equals(title)){
+                    view.setTfTitleCommunity(c.getTitle());
+                    System.out.println(c.getTitle());
+                    view.setTfCategoryCommunity(c.getKategori());
+                    System.out.println(c.getKategori());
+                    view.setTaDescCommunity(c.getDeskripsi());
+                    System.out.println(c.getDeskripsi());
+                    view.setTfDateCommunity(c.getTanggalBuat());
+                    System.out.println(c.getTanggalBuat());
                 }
             }
         }

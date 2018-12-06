@@ -2270,7 +2270,7 @@ public class MenuView extends javax.swing.JFrame {
     //**********************--------------- Browse Community ---------------**********************
 
     public void setTaDescCommunity(String x) {
-        this.taDescCommunity = taDescCommunity;
+        taDescCommunity.setText(x);
     }
 
     public void setTbBcommunity(DefaultTableModel x) {

@@ -28,17 +28,16 @@ public class Database {
     private ArrayList<Community> listCmn = new ArrayList();
     
     public void connect(){
-        try {
+        try{
             String url = "jdbc:mysql://localhost:3306/prosearch";
             String user = "root";
             String pass = "";
-            conn = DriverManager.getConnection(url, user, pass);
+            conn = DriverManager.getConnection(url,user,pass);
             stmt = conn.createStatement();
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
     public void disconnect(){
         try {
             conn.close();
@@ -107,8 +106,6 @@ public class Database {
     
     public void loadJoin() {
         connect();
-        loadUser();
-        loadCommunity();
         try {
             String query = "SELECT * FROM mempunyai";
             rs = stmt.executeQuery(query);
@@ -250,6 +247,18 @@ public class Database {
         return cek;
     }
     
+    public boolean cekTitleBikinForum(String title){
+        boolean cek = false;
+        for (Community cmn : listCmn){
+            if (cmn.getTitle().equals(title)){
+                cek = true;
+                break;
+            }
+        }
+        
+        return cek;
+    }
+    
     
     public String getLastIdProject(){
         connect();
@@ -366,12 +375,10 @@ public class Database {
     
     public void addJoin(Join j) {
         connect();
-        loadCommunity();
-        loadJoin();
         String query = "INSERT INTO mempunyai VALUES (";
         query += "'" + j.getListCommunity().getIdCommunity() + "',";
         query += "'" + j.getListUser().getUsername() + "',";
-        query += "'" + j.getTanggalJoin() + "',";
+        query += " CURRENT_DATE(),";
         query += "'" + j.getIdJoin() + "'";
         query += ")";
         if (manipulate(query)) listJoin.add(j);
@@ -380,7 +387,6 @@ public class Database {
     
     public void addCommunity(Community c) {
         connect();
-        loadCommunity();
         String query = "INSERT INTO community VALUES (";
         query += "'" + c.getIdCommunity() + "',";
         query += "'" + c.getKategori() + "',";

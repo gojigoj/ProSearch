@@ -300,6 +300,7 @@ public class PaymentView extends javax.swing.JFrame {
     }
     
     public void addActionListener(ActionListener x){
+        btnFinish.addActionListener(x);
         btnCancel.addActionListener(x);
     }
     
