@@ -5,7 +5,6 @@
  */
 package View;
 
-import Controller.ControllerAdmin;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import javax.swing.JButton;

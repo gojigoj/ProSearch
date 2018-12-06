@@ -2,44 +2,42 @@
 package Model;
 
 public class Join {
-    private int numUser = 0;
-    private int numCommunity = 0;
-    private User[] listUser;
-    private Community[] listCommunity;
+    private String idJoin;
+    private User listUser;
+    private Community listCommunity;
     private String tanggalJoin;
     
-    public Join(String tanggalJoin) {
+    public Join(String idJoin, String tanggalJoin) {
+        this.idJoin = idJoin;
         this.tanggalJoin = tanggalJoin;
+    }
+
+    public String getIdJoin() {
+        return idJoin;
+    }
+
+    public void setIdJoin(String idJoin) {
+        this.idJoin = idJoin;
     }
     
     public void addUser(User user){
-        listUser[numUser] = user;
-        numUser++;
+        listUser = user;
     }
     
     public void addCommunity(Community community){
-        listCommunity[numCommunity] = community;
-        numCommunity++;
+        listCommunity = community;
     }
 
     public void setTanggalJoin(String tanggalJoin) {
         this.tanggalJoin = tanggalJoin;
     }
 
-    public int getNumUser() {
-        return numUser;
+    public User getListUser() {
+        return listUser;
     }
 
-    public int getNumCommunity() {
-        return numCommunity;
-    }
-
-    public User getListUser(int i) {
-        return listUser[i];
-    }
-
-    public Community getListCommunity(int i) {
-        return listCommunity[i];
+    public Community getListCommunity() {
+        return listCommunity;
     }
 
     public String getTanggalJoin() {

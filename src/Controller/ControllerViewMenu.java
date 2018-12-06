@@ -33,6 +33,10 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         view.resetCreateProject();
         view.resetBrowseService();
         view.resetSellService();
+        view.resetBrowseProduct();
+        view.resetSellProduct();
+        view.resetBrowseCommunity();
+        view.resetCreateCommunity();
         loadTableProject();
     }
 
@@ -56,12 +60,35 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         for (User o : user) {
             for (int i = 0; i < o.getNumJual() ; i++) {
                 if (o.getListJual(i) instanceof Service){
-                    Service p = (Service) o.getListJual(i);
-                    model.addRow(new Object[]{p.getTitle(), p.getKategori(), p.getPrice(), p.getDeadline()});
+                    Service s = (Service) o.getListJual(i);
+                    model.addRow(new Object[]{s.getTitle(), s.getKategori(), s.getPrice(), s.getDeadline()});
                 }
             }
         }
         view.setTbBService(model);
+    }
+    
+    public void loadTableProduct(){
+        DefaultTableModel model = new DefaultTableModel(new String[]{"Title", "Category", "Price"}, 0);
+        ArrayList<User> user = db.getListUser();
+        for (User o : user) {
+            for (int i = 0; i < o.getNumJual() ; i++) {
+                if (o.getListJual(i) instanceof ProductJadi){
+                    ProductJadi d = (ProductJadi) o.getListJual(i);
+                    model.addRow(new Object[]{d.getTitle(), d.getKategori(), d.getPrice()});
+                }
+            }
+        }
+        view.setTbBProduct(model);
+    }
+    
+    public void loadTableCommunity(){
+        DefaultTableModel model = new DefaultTableModel(new String[]{"Title", "Category", "Date Created"}, 0);
+        ArrayList<Community> cmn = db.getListCmn();
+        for (Community c : cmn) {
+                    model.addRow(new Object[]{c.getTitle(), c.getKategori(), c.getTanggalBuat()});
+        }
+        view.setTbBcommunity(model);
     }
     
     public void loadTableProjectBuy(){
@@ -95,10 +122,54 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
                         Service s = (Service) user.getListJual(j);
                         if (s.getTitle().equals(title)){
                             db.setProductBuy(s);
-                            new ControllerPayment("Salary");
+                            new ControllerPayment();
                         }
                     }
                 }
+        }
+    }
+    
+    public void loadTableProductBuy(){
+        User user = db.getUserJual();
+        int i = view.getSelectedProduct();
+        if (i == -1){
+            view.showMessage("Anda belum memilih product", "failed", 0);
+        } else {
+            String title = view.getTbBProduct().getModel().getValueAt(i, 0).toString();
+                for (int j = 0; j < user.getNumJual(); j++) {
+                    if (user.getListJual(j) instanceof ProductJadi){
+                        ProductJadi d = (ProductJadi) user.getListJual(j);
+                        if (d.getTitle().equals(title)){
+                            db.setProductBuy(d);
+                            new ControllerPayment();
+                        }
+                    }
+                }
+        }
+    }
+    
+    public void loadTableCommunityJoin(){
+        ArrayList<Community> cmn = db.getListCmn();
+        int i = view.getSelectedCommunity();
+        if (i == -1){
+            view.showMessage("Anda belum memilih Community", "failed", 0);
+        } else {
+            String title = view.getTbBcommunity().getModel().getValueAt(i, 0).toString();
+            for (Community c : cmn){
+                if (c.getTitle().equals(title)){
+                    int lastNum = Integer.parseInt(getLastIdJoin());
+                    String idJoin = "JOIN" + Integer.toString(lastNum+1);
+                    Date tgl = new Date();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String tanggal = sdf.format(tgl);
+                    Join j = new Join(idJoin,tanggal);
+                    j.addUser(db.getUserLogin());
+                    j.addCommunity(c);
+                    db.addJoin(j);
+                    view.showMessage("Anda Berhasil join ke community "+c.getTitle(), "Success", 1);
+                }
+                
+            }
         }
     }
     
@@ -150,6 +221,78 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         return s;
     }
     
+    public String getLastIdPrd(){
+        String LastPrd = db.getLastIdProduct();
+        System.out.println(LastPrd);
+        String s;
+        if (LastPrd == null){
+            s = "0";
+        } else {
+            char[] c = LastPrd.toCharArray();
+            int i = 0;
+            while (i < c.length && c[i] != 'D'){
+                i++;
+            }
+            char[] x = new char[(c.length-1)-i];
+            for (int k = 0; k < x.length; k++) {
+                for (int j = i; j < c.length; j++) {
+                    x[k] = c[j];
+                }
+            }
+            s = String.valueOf(x);
+        }
+        
+        return s;
+    }
+    
+    public String getLastIdCmn(){
+        String LastCmn = db.getLastIdCommunity();
+        System.out.println(LastCmn);
+        String s;
+        if (LastCmn == null){
+            s = "0";
+        } else {
+            char[] c = LastCmn.toCharArray();
+            int i = 0;
+            while (i < c.length && c[i] != 'N'){
+                i++;
+            }
+            char[] x = new char[(c.length-1)-i];
+            for (int k = 0; k < x.length; k++) {
+                for (int j = i; j < c.length; j++) {
+                    x[k] = c[j];
+                }
+            }
+            s = String.valueOf(x);
+        }
+        
+        return s;
+    }
+    
+    public String getLastIdJoin(){
+        String LastJoin = db.getLastIdJoin();
+        System.out.println(LastJoin);
+        String s;
+        if (LastJoin == null){
+            s = "0";
+        } else {
+            char[] c = LastJoin.toCharArray();
+            int i = 0;
+            while (i < c.length && c[i] != 'N'){
+                i++;
+            }
+            char[] x = new char[(c.length-1)-i];
+            for (int k = 0; k < x.length; k++) {
+                for (int j = i; j < c.length; j++) {
+                    x[k] = c[j];
+                }
+            }
+            s = String.valueOf(x);
+        }
+        
+        return s;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
@@ -173,6 +316,26 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         if (source.equals(view.getBtnPublishService())){
             btnPublishServiceActionPerformed();
         }
+        if (source.equals(view.getBtnBuyProduct())){
+            loadTableProductBuy();
+        }
+        if (source.equals(view.getBtnSearchProduct())){
+            btnSearchProductActionPerformed();
+            view.resetSearchService();
+        }
+        if (source.equals(view.getBtnPublishProduct())){
+            btnPublishProductActionPerformed();
+        } 
+        if (source.equals(view.getBtnJoinCommunity())){
+            loadTableCommunityJoin();
+        }
+        if (source.equals(view.getBtnSearchCommunity())){
+            btnSearchCommunityActionPerformed();
+            view.resetSearchCommunity();
+        }
+        if (source.equals(view.getBtnCreateCommunity())){
+            btnPublishCommunityActionPerformed();
+        } 
     }
     
     public void btnSearchProjectActionPerformed(){
@@ -206,14 +369,51 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
             for (User o : user){
                 for (int i = 0; i < o.getNumJual(); i++) {
                     if (o.getListJual(i) instanceof Service){
-                        Service p = (Service) o.getListJual(i);
-                        if (p.getKategori().equals(kategori)){
-                            model.addRow(new Object[]{p.getTitle(), p.getKategori(), p.getPrice(), p.getDeadline()});
+                        Service s = (Service) o.getListJual(i);
+                        if (s.getKategori().equals(kategori)){
+                            model.addRow(new Object[]{s.getTitle(), s.getKategori(), s.getPrice(), s.getDeadline()});
                         }
                     }
                 }
             }
             view.setTbBService(model);
+        }
+    }
+    
+    public void btnSearchProductActionPerformed(){
+        String kategori = view.getCbSearchProduct();
+        if (kategori == "All"){
+            loadTableProduct();
+        } else {
+            DefaultTableModel model = new DefaultTableModel(new String[]{"Title", "Category", "Price"}, 0);
+            ArrayList<User> user = db.getListUser();
+            for (User o : user){
+                for (int i = 0; i < o.getNumJual(); i++) {
+                    if (o.getListJual(i) instanceof ProductJadi){
+                        ProductJadi d = (ProductJadi) o.getListJual(i);
+                        if (d.getKategori().equals(kategori)){
+                            model.addRow(new Object[]{d.getTitle(), d.getKategori(), d.getPrice()});
+                        }
+                    }
+                }
+            }
+            view.setTbBProduct(model);
+        }
+    }
+    
+    public void btnSearchCommunityActionPerformed(){
+        String kategori = view.getCbSearchCommunity();
+        if (kategori == "All"){
+            loadTableCommunity();
+        } else {
+            DefaultTableModel model = new DefaultTableModel(new String[]{"Title", "Category", "Date Created"}, 0);
+            ArrayList<Community> cmn = db.getListCmn();
+            for (Community c : cmn){
+                if (c.getKategori().equals(kategori)){
+                    model.addRow(new Object[]{c.getTitle(), c.getKategori(), c.getTanggalBuat()});
+                }
+            }
+            view.setTbBcommunity(model);
         }
     }
     
@@ -269,6 +469,55 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
         }
     }
     
+    public void btnPublishProductActionPerformed(){
+        int lastNum = Integer.parseInt(getLastIdPrd());
+        String idPrd = "PRD" + Integer.toString(lastNum+1);
+        Date tgl = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String tanggal = sdf.format(tgl);
+        String title = view.getTfTitleSProduct();
+        int price = Integer.parseInt(view.getTfBudgetSProduct());
+        String kategori = view.getCbSellProduct();
+        String deskripsi = view.getTaDescSProduct();
+        if (idPrd.isEmpty() || tanggal.isEmpty() || title.isEmpty() || price == 0 || kategori.isEmpty() || deskripsi.isEmpty()){
+            view.showMessage("Data Belum terisi semua", "Error", 0);
+        } else {
+            if (db.cekTitleBikin(title)){
+                view.showMessage("Title yang anda masukkan sudah ada", "Failed", 0);
+            } else if (kategori == "All"){
+                view.showMessage("Anda belum memilih kategori", "Failed", 0);
+            } else {
+                db.addProduct(new ProductJadi(idPrd,title,price,kategori,deskripsi));
+                view.showMessage("Register berhasil dilakukan", "Success", 1);
+                view.resetSellProduct();
+            }
+        }
+    }
+    
+    public void btnPublishCommunityActionPerformed(){
+        int lastNum = Integer.parseInt(getLastIdCmn());
+        String idCmn = "CMN" + Integer.toString(lastNum+1);
+        Date tgl = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String tanggal = sdf.format(tgl);
+        String title = view.getTfTitleCCommunity();
+        String kategori = view.getCbCreateCommunity();
+        String deskripsi = view.getTaDescCCommunity();
+        if (idCmn.isEmpty() || tanggal.isEmpty() || title.isEmpty() || kategori.isEmpty() || deskripsi.isEmpty()){
+            view.showMessage("Data Belum terisi semua", "Error", 0);
+        } else {
+            if (db.cekTitleBikin(title)){
+                view.showMessage("Title yang anda masukkan sudah ada", "Failed", 0);
+            } else if (kategori == "All"){
+                view.showMessage("Anda belum memilih kategori", "Failed", 0);
+            } else {
+                db.addCommunity(new Community(idCmn,title,kategori,deskripsi,tanggal));
+                view.showMessage("Register berhasil dilakukan", "Success", 1);
+                view.resetSellProduct();
+            }
+        }
+    }
+    
     public void mousePressed(MouseEvent me){
         Object source = me.getSource();
         if (source.equals(view.getBtnProject())){
@@ -281,6 +530,8 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
             view.resetBrowseService();
         } else if (source.equals(view.getBtnProduct())){
             getBtnProductMousePressed();
+            loadTableProduct();
+            view.resetBrowseProduct();
         } else if (source.equals(view.getBtnCommunity())){
             getBtnCommunityMousePressed();
         } else if (source.equals(view.getTbBProject())){
@@ -324,11 +575,30 @@ public class ControllerViewMenu extends MouseAdapter implements ActionListener{
                     }
                 }
             }
+        } else if (source.equals(view.getTbBProduct())){
+            ArrayList<User> user = db.getListUser();
+            int i = view.getSelectedProduct();
+            String title = view.getTbBProduct().getModel().getValueAt(i, 0).toString();
+            for (User o : user){
+                for (int j = 0; j < o.getNumJual(); j++) {
+                    if (o.getListJual(j) instanceof ProductJadi){
+                        ProductJadi d = (ProductJadi) o.getListJual(j);
+                        if (d.getTitle().equals(title)){
+                            view.setTfTitleProduct(d.getTitle());
+                            view.setTfCategoryProduct(d.getKategori());
+                            view.setTaDescProduct(d.getDeskripsi());
+                            view.setTfBudProduct(d.getPrice());
+                            view.setTfNameProduct(o.getUsername());
+                            db.setUserJual(o);
+                        }
+                    }
+                }
+            }
         }
     }
     
     
-    //**********************--------------- Tampilan ---------------**********************
+    //********************************************------------------------------ Tampilan ------------------------------********************************************
     
     public void mouseEntered(MouseEvent me) {
         Object source = me.getSource();

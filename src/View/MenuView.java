@@ -2163,6 +2163,200 @@ public class MenuView extends javax.swing.JFrame {
     }
     
     
+    //**********************--------------- Browse Product ---------------**********************
+
+    public void setTaDescProduct(String x) {
+        taDescProduct.setText(x);
+    }
+
+    public void setTbBProduct(DefaultTableModel x) {
+        tbBProduct.setModel(x);
+    }
+
+    public void setTfBudProduct(int x) {
+        Locale Indonesia = new Locale("in", "ID");
+        NumberFormat IndonesiaFormat = NumberFormat.getCurrencyInstance(Indonesia);
+        tfBudProduct.setText(IndonesiaFormat.format(x));
+    }
+
+    public void setTfCategoryProduct(String x) {
+        tfCategoryProduct.setText(x);
+    }
+
+    public void setTfNameProduct(String x) {
+        tfNameProduct.setText(x);
+    }
+
+    public void setTfTitleProduct(String x) {
+        tfTitleProduct.setText(x);
+    }
+    
+    public JTable getTbBProduct() {
+        return tbBProduct;
+    }
+    
+    public String getCbSearchProduct() {
+        return cbSearchProduct.getSelectedItem().toString();
+    }
+    
+    public int getSelectedProduct(){
+        return tbBProduct.getSelectedRow();
+    }
+
+    public JButton getBtnBuyProduct() {
+        return btnBuyProduct;
+    }
+
+    public JButton getBtnSearchProduct() {
+        return btnSearchProduct;
+    }
+
+    public void resetBrowseProduct(){
+        cbSearchProduct.setSelectedIndex(0);
+        resetSearchProduct();
+    }
+    
+    public void resetSearchProduct(){
+        setTfTitleProduct("Title");
+        setTfCategoryProduct("Category");
+        setTfNameProduct("Name");
+        setTaDescProduct("");
+        setTfBudProduct(0);
+    }
+    
+    
+    //**********************--------------- Sell Product ---------------**********************
+
+    public void setTaDescSProduct(String x) {
+        taDescSProduct.setText(x);
+    }
+
+    public void setTfBudgetSProduct(String x) {
+        tfBudgetSProduct.setText(x);
+    }
+
+    public void setTfTitleSProduct(String x) {
+        tfTitleSProduct.setText(x);
+    }
+    
+    public String getCbSellProduct() {
+        return cbSellProduct.getSelectedItem().toString();
+    }
+
+    public String getTaDescSProduct() {
+        return taDescSProduct.getText();
+    }
+
+    public String getTfBudgetSProduct() {
+        return tfBudgetSProduct.getText();
+    }
+
+    public String getTfTitleSProduct(){
+        return tfTitleSProduct.getText();
+    }
+    
+    public JButton getBtnPublishProduct() {
+        return btnPublishProduct;
+    }
+    
+    public void resetSellProduct(){
+        cbSellService.setSelectedIndex(0);
+        setTfTitleSProduct("");
+        setTfBudgetSProduct("");
+        setTaDescSProduct("");
+    }
+    
+    
+    //**********************--------------- Browse Community ---------------**********************
+
+    public void setTaDescCommunity(String x) {
+        this.taDescCommunity = taDescCommunity;
+    }
+
+    public void setTbBcommunity(DefaultTableModel x) {
+        tbBcommunity.setModel(x);
+    }
+
+    public void setTfCategoryCommunity(String x) {
+        tfCategoryCommunity.setText(x);
+    }
+
+    public void setTfDateCommunity(String x) {
+        tfDateCommunity.setText(x);
+    }
+
+    public void setTfTitleCommunity(String x) {
+        tfTitleCommunity.setText(x);
+    }
+
+    public JButton getBtnJoinCommunity() {
+        return btnJoinCommunity;
+    }
+
+    public String getCbSearchCommunity() {
+        return cbSearchCommunity.getSelectedItem().toString();
+    }
+
+    public JTable getTbBcommunity() {
+        return tbBcommunity;
+    }
+    
+    public int getSelectedCommunity(){
+        return tbBcommunity.getSelectedRow();
+    }
+
+    public JButton getBtnSearchCommunity() {
+        return btnSearchCommunity;
+    }
+    
+    public void resetBrowseCommunity(){
+        cbSearchCommunity.setSelectedIndex(0);
+        resetSearchCommunity();
+    }
+    
+    public void resetSearchCommunity(){
+        setTfTitleCommunity("Title");
+        setTfCategoryCommunity("Category");
+        setTaDescCommunity("");
+        setTfDateCommunity("yyyy-MM-dd");
+    }
+    
+    
+    //**********************--------------- CreateCommunity ---------------**********************
+
+    public String getCbCreateCommunity() {
+        return cbCreateCommunity.getSelectedItem().toString();
+    }
+
+    public String getTaDescCCommunity() {
+        return taDescCCommunity.getText();
+    }
+
+    public String getTfTitleCCommunity() {
+        return tfTitleCCommunity.getText();
+    }
+
+    public JButton getBtnCreateCommunity() {
+        return btnCreateCommunity;
+    }
+
+    public void setTaDescCCommunity(String x) {
+        taDescCCommunity.setText(x);
+    }
+
+    public void setTfTitleCCommunity(String x) {
+        tfTitleCCommunity.setText(x);
+    }
+    
+    public void resetCreateCommunity(){
+        cbSellService.setSelectedIndex(0);
+        setTfTitleCCommunity("");
+        setTfCategoryCommunity("");
+        setTaDescCCommunity("");
+    }
+    
+    //**********************--------------- ++++++++++++++ ---------------**********************
+    
     public void addActionListener(ActionListener x){
         btnSearchProject.addActionListener(x);
         btnApplyProject.addActionListener(x);
@@ -2170,11 +2364,19 @@ public class MenuView extends javax.swing.JFrame {
         btnSearchService.addActionListener(x);
         btnBuyService.addActionListener(x);
         btnPublishService.addActionListener(x);
+        btnSearchProduct.addActionListener(x);
+        btnBuyProduct.addActionListener(x);
+        btnPublishProduct.addActionListener(x);
+        btnSearchCommunity.addActionListener(x);
+        btnJoinCommunity.addActionListener(x);
+        btnCreateCommunity.addActionListener(x);
     }
     
     public void addMouseAdapter(MouseAdapter x){
         tbBProject.addMouseListener(x);
         tbBService.addMouseListener(x);
+        tbBProduct.addMouseListener(x);
+        tbBcommunity.addMouseListener(x);
         btnProject.addMouseListener(x);
         btnService.addMouseListener(x);
         btnProduct.addMouseListener(x);

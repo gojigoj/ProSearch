@@ -24,6 +24,8 @@ public class Database {
     private static Product productBuy;
     private ArrayList<User> listUser = new ArrayList();
     private ArrayList<Transaksi> listTrx = new ArrayList();
+    private ArrayList<Join> listJoin = new ArrayList();
+    private ArrayList<Community> listCmn = new ArrayList();
     
     public void connect(){
         try {
@@ -82,6 +84,48 @@ public class Database {
                 while (rs.next()){
                     o.AddJual(new ProductJadi(rs.getString("kode_product"), rs.getString("title"), rs.getInt("price"), rs.getString("kategori"), rs.getString("deskripsi")));
                 }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
+    
+     public void loadCommunity() {
+        connect();
+        try {
+            String query = "SELECT * FROM community";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                listCmn.add(new Community(rs.getString("id_com"),rs.getString("title"),rs.getString("kategori"),rs.getString("deskripsi"),rs.getString("tgl_buat")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
+    
+    public void loadJoin() {
+        connect();
+        loadUser();
+        loadCommunity();
+        try {
+            String query = "SELECT * FROM mempunyai";
+            rs = stmt.executeQuery(query);
+            int i = 0;
+            while (rs.next()){
+                listJoin.add(new Join(rs.getString("idJoin"),rs.getString("tglJoin")));
+                for (User o : listUser){
+                    if (o.getUsername().equals(rs.getString("username"))){
+                        listJoin.get(i).addUser(o);
+                    }
+                }
+                for (Community c : listCmn){
+                    if (c.getIdCommunity().equals(rs.getString("id_com"))){
+                        listJoin.get(i).addCommunity(c);
+                    }
+                }
+                i++;
             }
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
@@ -156,6 +200,18 @@ public class Database {
         return listUser;
     }
 
+    public ArrayList<Transaksi> getListTrx() {
+        return listTrx;
+    }
+
+    public ArrayList<Join> getListJoin() {
+        return listJoin;
+    }
+
+    public ArrayList<Community> getListCmn() {
+        return listCmn;
+    }
+    
     public boolean cekUsername(String username){
         boolean cek = false;
         for (User usr : listUser){
@@ -227,6 +283,54 @@ public class Database {
         return lastIdSrv;
     }
     
+    public String getLastIdProduct(){
+        connect();
+        String lastIdPrd = null;
+        try {
+            String query = "select max(kode_product) from productjadi";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                lastIdPrd = rs.getString("max(kode_product)");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lastIdPrd;
+    }
+    
+    public String getLastIdCommunity(){
+        connect();
+        String lastIdCmn = null;
+        try {
+            String query = "select max(id_com) from community";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                lastIdCmn = rs.getString("max(id_com)");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lastIdCmn;
+    }
+    
+    public String getLastIdJoin(){
+        connect();
+        String lastIdJoin = null;
+        try {
+            String query = "select max(idJoin) from mempunyai";
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                lastIdJoin = rs.getString("max(idJoin)");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lastIdJoin;
+    }
+    
     public String getLastIdTrx(){
         connect();
         String lastTrx = null;
@@ -260,6 +364,33 @@ public class Database {
         disconnect();
     }
     
+    public void addJoin(Join j) {
+        connect();
+        loadCommunity();
+        loadJoin();
+        String query = "INSERT INTO mempunyai VALUES (";
+        query += "'" + j.getListCommunity().getIdCommunity() + "',";
+        query += "'" + j.getListUser().getUsername() + "',";
+        query += "'" + j.getTanggalJoin() + "',";
+        query += "'" + j.getIdJoin() + "'";
+        query += ")";
+        if (manipulate(query)) listJoin.add(j);
+        disconnect();
+    }
+    
+    public void addCommunity(Community c) {
+        connect();
+        loadCommunity();
+        String query = "INSERT INTO community VALUES (";
+        query += "'" + c.getIdCommunity() + "',";
+        query += "'" + c.getKategori() + "',";
+        query += "'" + c.getDeskripsi() + "',";
+        query += " CURRENT_DATE(),";
+        query += "'" + c.getTitle() + "'";
+        query += ")";
+        if (manipulate(query)) listCmn.add(c);
+        disconnect();
+    }
     
     public void addTrx(Transaksi trx){
         connect();
@@ -332,6 +463,30 @@ public class Database {
             for (User u : listUser){
                 if (u.getUsername().equals(userLogin.getUsername())){
                     u.AddJual(s);
+                }
+            }
+        };
+        disconnect();
+    }
+    
+    public void addProduct(ProductJadi d){
+        connect();
+        String query1 = "INSERT INTO product VALUES (";
+        query1 += "'" + d.getProductId() + "',";
+        query1 += "'" + getUserLogin().getUsername() + "',";
+        query1 += "'" + d.getTitle() + "',";
+        query1 += "'" + d.getKategori() + "',";
+        query1 += "'" + d.getPrice() + "',";
+        query1 += "'" + d.getDeskripsi() + "'";
+        query1 += ")";
+        
+        String query2 = "INSERT INTO productjadi VALUES (";
+        query2 += "'" + d.getProductId()+ "'";
+        query2 += ")";
+        if (manipulate(query1) && manipulate(query2)){
+            for (User u : listUser){
+                if (u.getUsername().equals(userLogin.getUsername())){
+                    u.AddJual(d);
                 }
             }
         };
