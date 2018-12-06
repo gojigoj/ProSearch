@@ -38,7 +38,7 @@ public class PaymentView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         tfTransId = new javax.swing.JTextField();
-        btnFinish = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -51,6 +51,7 @@ public class PaymentView extends javax.swing.JFrame {
         cbBank = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         tfNoRek = new javax.swing.JTextField();
+        btnFinish = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -74,17 +75,17 @@ public class PaymentView extends javax.swing.JFrame {
         });
         jPanel1.add(tfTransId, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 400, 40));
 
-        btnFinish.setBackground(new java.awt.Color(255, 192, 0));
-        btnFinish.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
-        btnFinish.setText("FINISH");
-        btnFinish.setToolTipText("");
-        btnFinish.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 192, 0)));
-        btnFinish.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setBackground(new java.awt.Color(255, 192, 0));
+        btnCancel.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        btnCancel.setText("CANCEL");
+        btnCancel.setToolTipText("");
+        btnCancel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFinishActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
-        jPanel1.add(btnFinish, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 520, 130, 40));
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 520, 130, 40));
 
         jLabel6.setFont(new java.awt.Font("Montserrat SemiBold", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 192, 0));
@@ -177,6 +178,18 @@ public class PaymentView extends javax.swing.JFrame {
         });
         jPanel1.add(tfNoRek, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 400, 40));
 
+        btnFinish.setBackground(new java.awt.Color(255, 192, 0));
+        btnFinish.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        btnFinish.setText("FINISH");
+        btnFinish.setToolTipText("");
+        btnFinish.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFinish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinishActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFinish, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 520, 130, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -196,9 +209,9 @@ public class PaymentView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfTitleProductActionPerformed
 
-    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnFinishActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     private void tfTransIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTransIdActionPerformed
         // TODO add your handling code here:
@@ -212,8 +225,13 @@ public class PaymentView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNoRekActionPerformed
 
+    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFinishActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnFinish;
     private javax.swing.JComboBox<String> cbBank;
     private javax.swing.JLabel jLabel10;
@@ -236,6 +254,10 @@ public class PaymentView extends javax.swing.JFrame {
         return btnFinish;
     }
 
+    public JButton getBtnCancel() {
+        return btnCancel;
+    }
+    
     public String getTfNoRek() {
         return tfNoRek.getText();
     }
@@ -278,7 +300,7 @@ public class PaymentView extends javax.swing.JFrame {
     }
     
     public void addActionListener(ActionListener x){
-        btnFinish.addActionListener(x);
+        btnCancel.addActionListener(x);
     }
     
     public void showMessage(String message, String title, int type){

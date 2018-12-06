@@ -103,7 +103,7 @@ public class register extends javax.swing.JFrame {
         btnRegister.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         btnRegister.setText("REGISTER");
         btnRegister.setToolTipText("");
-        btnRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 192, 0)));
+        btnRegister.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);

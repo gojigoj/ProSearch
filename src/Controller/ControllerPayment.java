@@ -72,8 +72,6 @@ public class ControllerPayment extends MouseAdapter implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnFinish())){
-            int i = view.ShowConfirmDialog("Do you want to proceed ?", "Select an option...");
-            if (i == 0){
                 String idTrx = view.getTfTransId();
                 int nom = Integer.parseInt(view.getTfPrice());
                 String norek = view.getTfNoRek();
@@ -85,9 +83,9 @@ public class ControllerPayment extends MouseAdapter implements ActionListener {
                 db.addTrx(trx);
                 view.showMessage("Your payment have been confirmed", "Success", 1);
                 view.setVisible(false);
-            } else if (i == 2){
-                view.setVisible(false);
-            }
+        }
+        if (source.equals(view.getBtnCancel())){
+            view.setVisible(false);
         }
     }
     
